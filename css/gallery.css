@@ -1,0 +1,102 @@
+.container {
+	margin: 50px 0px 0px 0px;
+  display: inline-block;
+  text-align: center;
+}
+
+.panel {
+	display: inline-block;
+	vertical-align: top;
+
+	width: 150px;
+
+	border-radius: 10px;
+	margin: 10px;
+
+	padding: 10px;
+
+	background-color: #303030;
+}
+
+.panel:hover {
+	background-color: #404040;
+}
+
+.panel-heading {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.panel-heading-text {
+	/* font-size: 110%; */
+}
+
+.panel-heading-uploaded {
+	font-size: 90%;
+}
+
+.panel-body {
+	margin: 0px 0px 0px 10px;
+	height: 140px;
+	position: relative
+}
+
+.preview {
+	height: 65px;
+	width: 65px;
+	margin: 2px 2px 0px 0px;
+}
+
+.leftColumn, .rightColumn {
+	float: left;
+}
+
+.upperLeft {
+	background-color: yellow;
+}
+
+.upperRight {
+	background-color: red;
+}
+
+.lowerLeft {
+	background-color: blue;
+}
+
+.lowerRight {
+	background-color: green;
+}
+
+#orderByContainer, #searchContainer, .home-img-container {
+	float: left;
+	position: relative;
+	top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);  
+  -o-transform: translateY(-50%);  
+  margin-left: 5px;
+}
+
+#searchContainer {
+	margin-left: 10%;
+}
+
+#userName {
+	float: right;
+	font-size: 200%;
+	margin: 10px;
+}
+
+#logout {
+	float: right;
+	margin-right: 10px;
+	font-size: 140%;
+	color: #730000;
+}
+
+#setup {
+	position: absolute; right: 0; bottom: 0;
+	margin: 10px;
+	font-size: 150%;
+	color: #BB0000;
+}

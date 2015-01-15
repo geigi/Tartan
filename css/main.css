@@ -1,0 +1,83 @@
+html {
+	height: 97%;
+	width: 97%;
+}
+
+body {
+	background-image: linear-gradient(180deg, #101010, #191919);
+	height: 92%;
+	width: 100%;
+	background-attachment: fixed;
+}
+
+/* Font for all text */
+span {
+	font-family: "Calibri";
+	color: #808080;
+}
+
+a:link {
+  color: #A0A0A0;
+}
+
+a:visited {
+	color: #A0A0A0;
+}
+
+a:hover {
+  color: #B0B0B0;
+}
+
+form {
+	width:500px;
+	margin:0 auto;
+}
+
+.search { 
+	padding:6px 15px 6px 30px;
+	margin:3px;
+	border-radius:10px;
+	width:95%;
+	height:15px;
+	border:1px solid #2a2e31;
+	background-color:#2d3035;
+	color:#808080;
+}
+
+.search-wrapper:before {
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 25px;
+  left: 14px;
+  content: "\f002";
+}
+
+input[type=text]{
+	font-size: 100%;
+}
+
+.top-div {
+	height: 50px;
+	width: 100%;
+	z-index: 1000;
+	position: fixed;
+	color: #808080;
+	top: 0;
+	left: 0;
+	background-color: rgba(16, 16, 16, 0.8);
+}
+
+.bottom-div {
+	height: 50px;
+	width: 100%;
+	z-index: 1000;
+	position: fixed;
+	color: white;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(16, 16, 16, 0.8);
+}
+
+.fa {
+	cursor: pointer;
+}

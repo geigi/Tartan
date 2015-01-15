@@ -1,0 +1,97 @@
+.order-by-container, .back-img-container {
+	float: left;
+	position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);  
+  -o-transform: translateY(-50%);  
+  transform: translateY(-50%);
+  margin-left: 6px;
+}
+
+#container {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.fullPic {
+	margin: 5px;
+	display: none;
+}
+
+.fa {
+	color: #808080;
+}
+
+.player {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80px;
+}
+
+.fa-circle-o-notch {
+	display: inline-block;
+	text-align: center;
+    vertical-align: bottom;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.bottom-div {
+	height: 100px;
+}
+
+.navigator {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	cursor: pointer;
+	
+}
+
+.grey {
+	background-color: rgba(16, 16, 16, 0.3);
+	visibility: hidden;
+	height: 100%;
+}
+
+.nav-left {
+	width: 30%;
+	left: 0;
+}
+
+.nav-right {
+	width: 72%;
+	left: 30%;
+}
+
+#nav-left {
+	width: 33%;
+}
+
+#nav-right {
+	width: 14%;
+	float: right;
+}
+
+.panel-body {
+	position: relative;
+}
+
+.overlay-left {
+	margin-top: 270%;
+	margin-left: 7px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.overlay-right {
+	margin-top: 270%;
+	margin-left: 9px;
+	color: rgba(255, 255, 255, 0.5);
+
+}
