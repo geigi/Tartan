@@ -81,3 +81,10 @@ input[type=text]{
 .fa {
 	cursor: pointer;
 }
+
+
+.dropdown {
+  transform: translateY(10%);
+  -webkit-transform: translateY(10%);  
+  -o-transform: translateY(10%); 
+}

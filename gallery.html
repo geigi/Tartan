@@ -11,6 +11,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="lib/dropdown/css/style.css">
 </head>
 <body onload="init()">
 
@@ -21,15 +22,19 @@
 		</a>
 	</div>
 	<div id="orderByContainer">
-		<span class="info-text">
-			Order by:
-		</span>
-		<select id="sort" class="search">
-			<form>
-				<option>Name</option>
-				<option>Upload Date</option>
-			</form>
-		</select>
+		<div class="info-container">
+			<span class="info-text">
+				Order by:
+			</span>
+		</div>
+		<div class="dropdown dropdown-dark">
+			<select name="sort" class="dropdown-select">
+				<form>
+					<option>Name</option>
+					<option>Upload Date</option>
+				</form>
+			</select>
+		</div>
 	</div>
 	<div id="searchContainer" class="dark">
 		<form>
