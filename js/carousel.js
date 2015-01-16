@@ -1,4 +1,7 @@
-curPic = 0;
+var curPic = 0;
+var dia = 0;
+var timer;
+var time = 2500;
 
 $(window).resize(function(){
     resizeImg();
@@ -6,6 +9,7 @@ $(window).resize(function(){
 
 function init() {
   document.onkeydown = checkKey;
+  initDiashow();
   initImg();
 }
 
@@ -50,11 +54,11 @@ function getGet(index) {
 }
 
 function prev() {
-  window.location = "carousel.html?img=" + (curPic - 1);
+  window.location = "carousel.html?img=" + (curPic - 1) + "&dia=" + dia;
 }
 
 function next() {
-  window.location = "carousel.html?img=" + (parseInt(curPic) + 1);
+  window.location = "carousel.html?img=" + (parseInt(curPic) + 1) + "&dia=" + dia;
 }
 
 function imgLoaded() {
@@ -90,4 +94,34 @@ function hide(elem) {
 function show(elem) {
   sender = document.getElementById(elem);
   sender.style.visibility = "visible";
+}
+
+function initDiashow() {
+  getDia = getGet('dia');
+  if (getDia == '1') {
+    button = document.getElementById("play");
+    button.className = "fa fa-fw fa-pause";
+    dia = 1;
+    timer = setInterval(function() {next()}, time);
+  }
+  else {
+    dia = 0;
+  }
+}
+
+function diashow() {
+  if (dia == 0) {
+    dia = 1;
+    button = document.getElementById("play");
+    button.className = "fa fa-fw fa-pause";
+
+    timer = setInterval(function() {next()}, time);
+  }
+  else {
+    dia = 0;
+    button = document.getElementById("play");
+    button.className = "fa fa-fw fa-play";
+
+    window.clearInterval(timer);
+  }
 }

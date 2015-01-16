@@ -99,3 +99,7 @@ img {
 	color: rgba(255, 255, 255, 0.4);
 
 }
+
+.fa-pause {
+	display: none;
+}
