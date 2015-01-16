@@ -20,7 +20,6 @@ img {
 }
 
 .fullPic {
-	margin: 5px;
 	display: none;
 }
 
@@ -31,7 +30,7 @@ img {
 .player {
 	margin-left: auto;
 	margin-right: auto;
-	width: 80px;
+	width: 119px;
 }
 
 .fa-circle-o-notch {
@@ -58,6 +57,7 @@ img {
 	background-color: rgba(16, 16, 16, 0.3);
 	visibility: hidden;
 	height: 100%;
+	position: relative;
 }
 
 .nav-left {
@@ -66,7 +66,7 @@ img {
 }
 
 .nav-right {
-	width: 72%;
+	width: 70%;
 	left: 30%;
 }
 
@@ -84,14 +84,17 @@ img {
 }
 
 .overlay-left {
-	margin-top: 270%;
-	margin-left: 7px;
+	position: absolute;
+	top: 45%;
+	float: left;
 	color: rgba(255, 255, 255, 0.5);
 }
 
 .overlay-right {
-	margin-top: 270%;
-	margin-left: 9px;
+	position: absolute;
+	top: 45%;
+	right: 0px;
+	margin-right: 2px;
 	color: rgba(255, 255, 255, 0.5);
 
 }
