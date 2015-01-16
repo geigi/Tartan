@@ -33,12 +33,12 @@ img {
 	width: 119px;
 }
 
-.fa-circle-o-notch {
+.fa-refresh {
 	display: inline-block;
 	text-align: center;
-    vertical-align: bottom;
-    width: 100%;
-    margin-bottom: 20px;
+  vertical-align: bottom;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .bottom-div {
@@ -54,7 +54,7 @@ img {
 }
 
 .grey {
-	background-color: rgba(16, 16, 16, 0.3);
+	background-color: rgba(16, 16, 16, 0.8);
 	visibility: hidden;
 	height: 100%;
 	position: relative;
@@ -71,11 +71,11 @@ img {
 }
 
 #nav-left {
-	width: 33%;
+	width: 40px;
 }
 
 #nav-right {
-	width: 14%;
+	width: 40px;
 	float: right;
 }
 
@@ -87,7 +87,7 @@ img {
 	position: absolute;
 	top: 45%;
 	float: left;
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.4);
 }
 
 .overlay-right {
@@ -95,6 +95,6 @@ img {
 	top: 45%;
 	right: 0px;
 	margin-right: 2px;
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.4);
 
 }
