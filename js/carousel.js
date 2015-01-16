@@ -100,7 +100,7 @@ function initDiashow() {
   getDia = getGet('dia');
   if (getDia == '1') {
     button = document.getElementById("play");
-    button.className = "fa fa-fw fa-pause";
+    button.className = "fa fa-fw fa-pause fa-lg";
     dia = 1;
     timer = setInterval(function() {next()}, time);
   }
@@ -113,14 +113,14 @@ function diashow() {
   if (dia == 0) {
     dia = 1;
     button = document.getElementById("play");
-    button.className = "fa fa-fw fa-pause";
+    button.className = "fa fa-fw fa-pause fa-lg";
 
     timer = setInterval(function() {next()}, time);
   }
   else {
     dia = 0;
     button = document.getElementById("play");
-    button.className = "fa fa-fw fa-play";
+    button.className = "fa fa-fw fa-play fa-lg";
 
     window.clearInterval(timer);
   }

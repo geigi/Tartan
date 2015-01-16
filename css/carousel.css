@@ -30,7 +30,11 @@ img {
 .player {
 	margin-left: auto;
 	margin-right: auto;
-	width: 119px;
+	width: 100px;
+}
+
+.fa-fw {
+	font-size: 25px;
 }
 
 .fa-refresh {
