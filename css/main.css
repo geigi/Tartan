@@ -82,9 +82,13 @@ input[type=text]{
 	cursor: pointer;
 }
 
+.info-container {
+	display: inline-block;
+	transform: translateY(-40%);
+	-o-transform: translateY(-40%);
+}
 
 .dropdown {
-  transform: translateY(10%);
-  -webkit-transform: translateY(10%);  
-  -o-transform: translateY(10%); 
+  transform: translateY(8%);
+  -o-transform: translateY(8%); 
 }
