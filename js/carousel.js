@@ -11,6 +11,7 @@ function init() {
   document.onkeydown = checkKey;
   initDiashow();
   initImg();
+  initPicker();
 }
 
 function initImg() {
@@ -124,4 +125,12 @@ function diashow() {
 
     window.clearInterval(timer);
   }
+}
+
+function initPicker() {
+  $('.picker').jScrollPane({
+    showArrows: true,
+    animateScroll: true,
+    arrowScrollOnHover: true
+  });
 }
