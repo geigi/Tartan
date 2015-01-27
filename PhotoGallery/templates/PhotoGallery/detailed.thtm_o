@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <img src="{{img.imgOrig.url}}" alt="{{img.name}}" height="{{img.imgOrig.height}}" width="{{img.imgOrig.width}}"/>
+    </body>
+</html>

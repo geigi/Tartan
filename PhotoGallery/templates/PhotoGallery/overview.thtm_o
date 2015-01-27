@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Album Overview</h2>
+            {% if albumList %}
+            <ul>
+                {% for album in albumList %}
+                <li>
+                    <a href="{% url 'albumDetail' album.id %}">
+                        {{ album.name }}
+
+                        {% for img in album.photo_set.all %}
+                            <img src="{{img.imgThumb.url}}" alt="{{img.name}}" height="{{img.imgThumb.height}}" width="{{img.imgThumb.width}}"/>
+                        {% endfor %}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <h4>No Album</h4>
+            {% endif %}
+    </body>
+</html>

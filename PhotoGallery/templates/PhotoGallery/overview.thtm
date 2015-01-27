@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Gallery</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/css/gallery.css">
+
+	<script src="static/js/gallery.js"></script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="static/lib/dropdown/css/style.css">
+</head>
+<body>
+
+<div class="top-div">
+	<div class="home-img-container">
+		<a href="gallery.html">
+			<i class="fa fa-home fa-2x"></i>
+		</a>
+	</div>
+	<div id="orderByContainer">
+		<div class="info-container">
+			<span class="info-text">
+				Order by:
+			</span>
+		</div>
+		<div class="dropdown dropdown-dark">
+			<select name="sort" class="dropdown-select">
+				<form>
+					<option>Name</option>
+					<option>Upload Date</option>
+				</form>
+			</select>
+		</div>
+	</div>
+	<div id="searchContainer" class="dark">
+		<form>
+			<p class="search-wrapper"><input type="text" class="search" placeholder="search"/></p>
+		</form>
+	</div>
+	<!--span id="userName">
+		USERNAME
+	</span-->
+</div>
+
+<div class="bottom-div">
+	<!--span id="logout">
+		Logout
+	</span-->
+	<span id="setup">
+		<a href="404.html">
+			<i class="fa fa-wrench"></i>
+		</a>
+	</span>
+</div>
+
+<div class="container" id="main-container">
+	{% if albumList %}
+		{% for album in albumList %}
+		<a href="{% url 'albumDetail' album.id %}">
+			<div id="panel1" class="panel">
+				<div class="panel-body">
+					<div class="leftColumn">
+						<div class="preview upperLeft">a</div>
+						<div class="preview upperRight">b</div>
+					</div>
+					<div class="rightColumn">
+						<div class="preview lowerLeft">c</div>
+						<div class="preview lowerRight">d</div>
+					</div>
+				</div>
+				<div class="panel-heading">
+					<span class="panel-heading-text">
+						{{ album.name }}
+					</span>
+					<br />
+					<span class="panel-heading-uploaded">
+						Uploaded: 12.08.2014
+					</span>
+				</div>
+			</div>
+		</a>
+		{% endfor %}
+	{% else %}
+	<!-- No Album found -->
+	{% endif %}
+</div>
+
+<div style="height: 2000px;">
+	
+</div>
+
+</body>
+</html>

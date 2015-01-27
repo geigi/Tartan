@@ -81,3 +81,14 @@ input[type=text]{
 .fa {
 	cursor: pointer;
 }
+
+.info-container {
+	display: inline-block;
+	transform: translateY(-40%);
+	-o-transform: translateY(-40%);
+}
+
+.dropdown {
+  transform: translateY(8%);
+  -o-transform: translateY(8%); 
+}

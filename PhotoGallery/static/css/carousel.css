@@ -9,6 +9,7 @@
 }
 
 #container {
+	position: relative;
 	margin-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
@@ -20,7 +21,6 @@ img {
 }
 
 .fullPic {
-	margin: 5px;
 	display: none;
 }
 
@@ -31,15 +31,20 @@ img {
 .player {
 	margin-left: auto;
 	margin-right: auto;
-	width: 80px;
+	width: 100px;
 }
 
-.fa-circle-o-notch {
+.fa-fw {
+	font-size: 25px;
+}
+
+.fa-refresh {
 	display: inline-block;
 	text-align: center;
-    vertical-align: bottom;
-    width: 100%;
-    margin-bottom: 20px;
+  vertical-align: bottom;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .bottom-div {
@@ -55,9 +60,10 @@ img {
 }
 
 .grey {
-	background-color: rgba(16, 16, 16, 0.3);
+	background-color: rgba(16, 16, 16, 0.8);
 	visibility: hidden;
 	height: 100%;
+	position: relative;
 }
 
 .nav-left {
@@ -66,16 +72,16 @@ img {
 }
 
 .nav-right {
-	width: 72%;
+	width: 70%;
 	left: 30%;
 }
 
 #nav-left {
-	width: 33%;
+	width: 40px;
 }
 
 #nav-right {
-	width: 14%;
+	width: 40px;
 	float: right;
 }
 
@@ -84,14 +90,30 @@ img {
 }
 
 .overlay-left {
-	margin-top: 270%;
-	margin-left: 7px;
-	color: rgba(255, 255, 255, 0.5);
+	position: absolute;
+	top: 45%;
+	float: left;
+	color: rgba(255, 255, 255, 0.4);
 }
 
 .overlay-right {
-	margin-top: 270%;
-	margin-left: 9px;
-	color: rgba(255, 255, 255, 0.5);
+	position: absolute;
+	top: 45%;
+	right: 0px;
+	margin-right: 2px;
+	color: rgba(255, 255, 255, 0.4);
 
+}
+
+.fa-pause {
+	display: none;
+}
+
+.picker {
+	position: absolute;
+	top: 50px;
+	right: 0px;
+	width: 70px;
+	bottom: 100px;
+	overflow: auto;
 }

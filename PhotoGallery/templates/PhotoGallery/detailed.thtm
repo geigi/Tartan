@@ -1,16 +1,25 @@
+{% load staticfiles %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 	<title>Schwarzes Album mit nem silbernen Knopf</title>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/carousel.css">
+	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/carousel.css" %}">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="js/carousel.js"></script>
+	<!-- styles needed by jScrollPane - include in your own sites -->
+	<link type="text/css" href="{% static "lib/scrollPane/style/jquery.jscrollpane.css" %}" rel="stylesheet" media="all" />
+	<!-- the styles for the lozenge theme -->
+	<link type="text/css" href="{% static "lib/scrollPane/themes/lozenge/style/jquery.jscrollpane.lozenge.css" %}" rel="stylesheet" media="all" />
+	<!-- the mousewheel plugin -->
+	<script type="text/javascript" src="{% static "lib/scrollPane/script/jquery.mousewheel.js" %}"></script>
+	<!-- the jScrollPane script -->
+	<script type="text/javascript" src="{% static "lib/scrollPane/script/jquery.jscrollpane.min.js" %}"></script>
 </head>
-<body onload="init()">
+<body>
 
 <div class="top-div">
 	<div class="back-img-container">
@@ -31,32 +40,40 @@
 
 <div class="container" id="container">
 	<div id="panel1" class="panel pic">
-		<div id="loader">
-			<i class="fa fa-circle-o-notch fa-spin fa-4x"></i>
+		<div id="loader" style="display:none">
+			<i class="fa fa-refresh fa-spin fa-4x"></i>
 		</div>
 		<div class="panel-body panel-body-preview">
-			<img id="fullPic" class="fullPic" onload="imgLoaded()"/>
+			<img id="fullPic" class="" src="{{img.imgOrig.url}}"/>
 			<div class="navigator nav-left" onclick="prev()" onmouseover="show('nav-left')" onmouseout="hide('nav-left')">
 				<div class="grey" id="nav-left">
-					<i class="fa fa-backward fa-3x overlay-left"></i>
+					<i class="fa fa-backward overlay-left fa-2x"></i>
 				</div>
 			</div>
 			<div class="navigator nav-right" onclick="next()" onmouseover="show('nav-right')" onmouseout="hide('nav-right')">
 				<div class="grey" id="nav-right">
-					<i class="fa fa-forward fa-3x overlay-right"></i>
+					<i class="fa fa-forward overlay-right fa-2x"></i>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 	
+<div class="picker">
+	{% for thumb in img.album.photo_set.all %}
+		<a href="{% url 'imageDetail' thumb.id %}">
+			<img src="{{thumb.imgThumb.url}}"></img>
+		</a>
+	{% endfor %}
+</div>
+
 <div class="bottom-div">
 	<div class="player">
-		<i class="fa fa-step-backward"></i>
-		<i class="fa fa-backward" onclick="prev()"></i>
-		<i class="fa fa-play"></i>
-		<i class="fa fa-forward" onclick="next()"></i>
-		<i class="fa fa-step-forward"></i>
+		<!-- <i class="fa fa-fw fa-step-backward"></i> -->
+		<i class="fa fa-fw fa-backward fa-lg" onclick="prev()"></i>
+		<i id="play" class="fa fa-fw fa-play fa-lg" onclick="diashow()"></i>
+		<i class="fa fa-fw fa-forward fa-lg" onclick="next()"></i>
+		<!-- <i class="fa fa-fw fa-step-forward"></i> -->
 	</div>
 	<div class="description">
 	<span>
