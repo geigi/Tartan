@@ -1,0 +1,502 @@
+%!TEX root = ../dokumentation.tex
+
+%
+% Nahezu alle Einstellungen koennen hier getaetigt werden
+%
+
+\documentclass[%
+	pdftex,
+	oneside,		% Einseitiger Druck.
+	12pt,			% Schriftgroesse
+	parskip=half,	% Halbe Zeile Abstand zwischen Absätzen.
+	headsepline,	% Linie nach Kopfzeile.
+	%footsepline,	% Linie vor Fusszeile.
+	abstracton,	    % Abstract Überschriften
+	ngerman,		% Translator
+]{scrreprt}
+
+%Seitengroesse
+%\usepackage{fullpage}
+
+%Zeilenumbruch und mehr
+\usepackage[activate]{microtype}
+
+% Zeichencodierung
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{footnote}
+% Zeilenabstand
+\usepackage[onehalfspacing]{setspace}
+\usepackage{tabularx}
+% Index-Erstellung
+\usepackage{makeidx}
+
+% Lokalisierung (neue deutsche Rechtschreibung)
+\usepackage[ngerman]{babel}
+
+% Anführungszeichen
+\usepackage[babel,german=quotes]{csquotes}
+%\usepackage[style=swiss]{csquotes}
+
+\usepackage{t1enc} % as usual
+%\usepackage[latin1]{inputenc} % as usual
+\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{helvet}
+
+% Spezielle Tabellenform fuer Deckblatt
+\usepackage{longtable}
+\setlength{\tabcolsep}{10pt} %Abstand zwischen Spalten
+\renewcommand{\arraystretch}{1.5} %Zeilenabstand
+
+% Grafiken
+\usepackage{graphicx}
+
+% Mathematische Textsaetze
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+
+% Pakete um Textteile drehen zu können, oder eine Seite Querformat anzeigen kann.
+%\usepackage{rotating}
+%\usepackage{lscape}
+
+% Farben
+\usepackage{color}
+\definecolor{LinkColor}{rgb}{0,0,0.2}
+\definecolor{ListingBackground}{rgb}{0.92,0.92,0.92}
+
+\newcommand{\pdftitel}{Web Bildergallerie}
+\newcommand{\autor}{Michael Schubert, Julian Geywitz}
+\newcommand{\arbeit}{Studienarbeit}
+
+% Titel, Autor und Datum
+\title{\titel}
+\author{\autor}
+\date{\datum}
+
+\usepackage{pgfplots}
+
+\usepackage{geometry}
+\geometry{a4paper,left=30mm,right=20mm, top=3cm, bottom=2cm}
+
+% PDF Einstellungen
+\usepackage[%
+	pdftitle={\pdftitel},
+	pdfauthor={\autor},
+	pdfsubject={\arbeit},
+	pdfcreator={pdflatex, LaTeX with KOMA-Script},
+	pdfpagemode=UseOutlines, % Beim Oeffnen Inhaltsverzeichnis anzeigen
+	pdfdisplaydoctitle=true, % Dokumenttitel statt Dateiname anzeigen.
+	pdflang=de % Sprache des Dokuments.
+]{hyperref}
+
+% (Farb-)einstellungen für die Links im PDF
+\hypersetup{%
+	colorlinks=true, % Aktivieren von farbigen Links im Dokument
+	linkcolor=LinkColor, % Farbe festlegen
+	citecolor=LinkColor,
+	filecolor=LinkColor,
+	menucolor=LinkColor,
+	urlcolor=LinkColor,
+	bookmarksnumbered=true % Überschriftsnummerierung im PDF Inhalt anzeigen.
+}
+
+\usepackage[all]{hypcap}
+
+% Literaturverweise nach Harvard (mit deutschem und)
+%\usepackage[dcucite]{harvard}
+\usepackage[round,authoryear]{natbib}
+%\renewcommand{\harvardand}{und}
+
+% Verschiedene Schriftarten
+%\usepackage{goudysans}
+%\usepackage{lmodern}
+%\usepackage{libertine}
+\usepackage{palatino}
+
+\usepackage{pdfpages}
+
+% Hurenkinder und Schusterjungen verhindern
+% http://projekte.dante.de/DanteFAQ/Silbentrennung
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% Quellcode
+\usepackage{listings}
+\lstloadlanguages{Java}
+\definecolor{bluekeywords}{rgb}{0,0,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.64,0.08,0.08}
+\definecolor{xmlcomments}{rgb}{0.5,0.5,0.5}
+\definecolor{types}{rgb}{0.17,0.57,0.68}
+\lstdefinestyle{Cs}{%
+	language=[Sharp]C,			 	 % Sprache des Quellcodes
+	numbers=left,           % Zelennummern links
+	stepnumber=1,            % Jede Zeile nummerieren.
+	numbersep=5pt,           % 5pt Abstand zum Quellcode
+	numberstyle=\tiny,       % Zeichengrösse 'tiny' für die Nummern.
+	breaklines=true,         % Zeilen umbrechen wenn notwendig.
+	breakautoindent=true,    % Nach dem Zeilenumbruch Zeile einrücken.
+	postbreak=\space,        % Bei Leerzeichen umbrechen.
+	tabsize=2,               % Tabulatorgrösse 2
+	basicstyle=\ttfamily\footnotesize, % Nichtproportionale Schrift, klein für den Quellcode
+	showspaces=false,        % Leerzeichen nicht anzeigen.
+	showstringspaces=false,  % Leerzeichen auch in Strings ('') nicht anzeigen.
+	extendedchars=true,      % Alle Zeichen vom Latin1 Zeichensatz anzeigen.
+	captionpos=b,            % sets the caption-position to bottom
+	backgroundcolor=\color{ListingBackground}, % Hintergrundfarbe des Quellcodes setzen.
+commentstyle=\color{greencomments},
+morekeywords={partial, var, value, get, set},
+keywordstyle=\color{bluekeywords},
+stringstyle=\color{redstrings}
+}
+ 
+\definecolor{maroon}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\lstdefinelanguage{XML}
+{
+  basicstyle=\ttfamily\footnotesize,
+  morestring=[s]{"}{"},
+  morecomment=[s]{?}{?},
+  morecomment=[s]{!--}{--},
+  commentstyle=\color{darkgreen},
+  moredelim=[s][\color{black}]{>}{<},
+  moredelim=[s][\color{red}]{\ }{=},
+  stringstyle=\color{blue},
+  identifierstyle=\color{maroon}
+}
+
+%JSON
+\usepackage{xcolor}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+\lstdefinestyle{json}{language=json}
+
+\lstdefinelanguage{csv}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{black}0}}}{1}
+      {1}{{{\color{black}1}}}{1}
+      {2}{{{\color{black}2}}}{1}
+      {3}{{{\color{black}3}}}{1}
+      {4}{{{\color{black}4}}}{1}
+      {5}{{{\color{black}5}}}{1}
+      {6}{{{\color{black}6}}}{1}
+      {7}{{{\color{black}7}}}{1}
+      {8}{{{\color{black}8}}}{1}
+      {9}{{{\color{black}9}}}{1}
+      {,}{{{\color{punct}{,}}}}{1},
+}
+\lstdefinestyle{csv}{language=csv}
+
+\lstdefinestyle{cpp}{language=C++}
+\lstdefinestyle{xml}{language=XML}
+
+
+
+\definecolor{Code}{rgb}{0,0,0}
+\definecolor{Decorators}{rgb}{0.5,0.5,0.5}
+\definecolor{Numbers}{rgb}{0.5,0,0}
+\definecolor{MatchingBrackets}{rgb}{0.25,0.5,0.5}
+\definecolor{Keywords}{rgb}{0,0,1}
+\definecolor{self}{rgb}{0,0,0}
+\definecolor{Strings}{rgb}{0,0.63,0}
+\definecolor{Comments}{rgb}{0,0.63,1}
+\definecolor{Backquotes}{rgb}{0,0,0}
+\definecolor{Classname}{rgb}{0,0,0}
+\definecolor{FunctionName}{rgb}{0,0,0}
+\definecolor{Operators}{rgb}{0,0,0}
+\definecolor{Background}{rgb}{0.98,0.98,0.98}
+
+
+\lstdefinestyle{py}
+{
+numbers=left,
+numberstyle=\footnotesize,
+numbersep=1em,
+xleftmargin=1em,
+framextopmargin=2em,
+framexbottommargin=2em,
+showspaces=false,
+showtabs=false,
+showstringspaces=false,
+frame=l,
+tabsize=4,
+% Basic
+basicstyle=\ttfamily\footnotesize\setstretch{1},
+backgroundcolor=\color{ListingBackground},
+language=Python,
+% Comments
+commentstyle=\color{Comments}\slshape,
+% Strings
+stringstyle=\color{Strings},
+morecomment=[s][\color{Strings}]{"""}{"""},
+morecomment=[s][\color{Strings}]{'''}{'''},
+% keywords
+morekeywords={import,from,class,def,for,while,if,is,in,elif,else,not,and,or,print,break,continue,return,True,False,None,access,as,,del,except,exec,finally,global,import,lambda,pass,print,raise,try,assert},
+keywordstyle={\color{Keywords}\bfseries},
+% additional keywords
+morekeywords={[2]@invariant},
+keywordstyle={[2]\color{Decorators}\slshape},
+emph={self},
+emphstyle={\color{self}\slshape},
+%
+}
+
+\usepackage{booktabs,enumitem}
+\newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
+
+%
+%this defines the page style for the first pages: all empty
+%\renewpagestyle{plain}%
+%	{(\textwidth,0pt)%
+%		{\hfill}{\hfill}{\hfill}%
+%	(\textwidth,0pt)}%
+%	{(\textwidth,0pt)%
+%		{\hfill}{\hfill}{\hfill}%
+%	(\textwidth,0pt)}
+%
+
+% Glossar
+\usepackage[
+	nonumberlist, %keine Seitenzahlen anzeigen
+	%xindy,      %ein Abkürzungsverzeichnis erstellen
+	%section,     %im Inhaltsverzeichnis auf section-Ebene erscheinen
+	toc,          %Einträge im Inhaltsverzeichnis
+]{glossaries}
+
+%Akronyme
+\usepackage[printonlyused,footnote]{acronym}
+
+% Fussnoten
+\usepackage[perpage, hang, multiple, stable, bottom]{footmisc}
+
+%Bildpfad
+\graphicspath{{images/}}
+
+%nur ein latex-Durchlauf für die Aktualisierung von Verzeichnissen nötig
+\usepackage{bookmark}
+
+%Gleitumgebungen (Bilder, Tabellen, usw\ldots) lassen sich mit H an genau der
+% definierten Stelle platzieren
+\usepackage{float}
+
+% für die vertikale Platzierung von Text in Tabellen
+\usepackage{array}
+
+% für die Darstellung des Euro-Symbols
+\usepackage[right]{eurosym}
+
+% für textumflossene Grafiken
+\usepackage{wrapfig}
+
+% eine Kommentarumgebung "k" (Handhabe mit \begin{k}<Kommentartext>\end{k},
+% Kommentare werden rot gedruckt). Wird \% vor excludecomment{k} entfernt,
+% werden keine Kommentare mehr gedruckt.
+\usepackage{comment}
+\specialcomment{k}{\begingroup\color{red}}{\endgroup}
+%\excludecomment{k}
+
+%Makro für Bilder Anwendung:
+%\bild[htb]{width=0.5\linewidth}{bild.jpg}{Bildunterschrift}
+%\bild{width = 10cm}{dhbw.png}{Ein Logo der DHBW}{LOGO}
+%
+\newcommand{\bild}[4][htb]
+{
+\begin{figure}[#1]
+\begin{center}
+\includegraphics[#2]{#3} %Bilder liegen im Unterordner "Bilder"
+\caption{#4}
+\label{#3}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\bildanhang}[3][htb]
+{
+\begin{figure}[#1]
+\begin{center}
+\includegraphics[#2]{#3} %Bilder liegen im Unterordner "Bilder"
+\label{#3}
+\end{center}
+\end{figure}
+}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+%\usetikzlibrary{arrows.meta}
+\usetikzlibrary{intersections}
+%\usetikzlibrary{backgrounds}
+\usetikzlibrary{fit}
+\usetikzlibrary{spy}
+\usetikzlibrary{shapes}
+\usepackage{pgfplots}
+%\SendSettingsToPgf
+\usepackage{pgfplots}
+
+\usepackage{placeins}
+\usepackage{flafter}
+
+\DeclareUnicodeCharacter{0239}{\"\i}
+
+
+\defglsdisplayfirst[main]{\Glsentryname{\glslabel}\footnote{\Glsentrydesc{\glslabel}}}
+
+\newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
+\newcommand\textvtt[1]{{\normalfont\fontfamily{cmvtt}\selectfont #1}}
+
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+%\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{orange}{rgb}{1,0.45,0.13}      
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
+\usepackage{upquote}
+\usepackage{listings}
+% CSS
+\lstdefinelanguage{CSS}{
+  keywords={color,background-image:,margin,padding,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width, transition:, transform:, transition-property, transition-duration, transition-timing-function,background-color,nth-of-type}, 
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  alsoletter={:},
+  alsodigit={-}
+}
+
+% JavaScript
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstdefinelanguage{HTML5}{
+  language=html,
+  sensitive=true,   
+  alsoletter={<>=-},    
+  morecomment=[s]{<!-}{-->},
+  tag=[s],
+  otherkeywords={
+  % General
+  >,
+  % Standard tags
+    <!DOCTYPE,
+  </html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+    % body
+    </body, <body,
+    % Divs
+    </div, <div, </div>, 
+    % Paragraphs
+    </p, <p, </p>,
+    % scripts
+    </script, <script,
+  % More tags...
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
+  },
+  ndkeywords={
+  % General
+  =,
+  % HTML attributes
+  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+  % SVG attributes
+  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+  % properties
+  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+    % CSS3 properties
+  transform:, -moz-transform:, -webkit-transform:,
+  animation:, -webkit-animation:,
+  transition:,  transition-duration:, transition-property:, transition-timing-function:,
+  }
+}
+
+\lstdefinestyle{htmlcssjs} {%
+  % General design
+%  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},   
+  frame=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true, 
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  language=CSS,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},  
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % German umlauts
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+}
+
+\usepackage{struktex}
+\usetikzlibrary{decorations.markings}

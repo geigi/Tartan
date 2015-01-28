@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"options": {
+		"root": "dokumentation.tex",
+		"pdf": "docu"
+	}
+}

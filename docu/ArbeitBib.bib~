@@ -1,0 +1,120 @@
+@book{foord2009ironpython,
+  title={IronPython in action},
+  author={Foord, M.J. and Muirhead, C.},
+  isbn={9781933988337},
+  lccn={2009278753},
+  series={Manning Pubs Co Series},
+  url={http://books.google.de/books?id=wu4pAQAAMAAJ},
+  year={2009},
+  publisher={Manning}
+}
+
+@book{kaiser2008python,
+  title={Python: Das umfassende Handbuch - Spracheinf{\"u}hrung, Objektorientierung, Programmiertechniken},
+  author={Peter Kaiser},
+  isbn={9783836211109},
+  series={Galileo Computing},
+  url={http://openbook.galileocomputing.de/python/index.htm},
+  year={2008},
+  publisher={Galileo Press GmbH}
+}
+
+@book{kuehnel2012visual,
+  title={Visual C\# 2012: Das umfassende Handbuch - Spracheinf{\"u}hrung, Objektorientierung, Programmiertechniken},
+  author={K{\"u}hnel, A.},
+  isbn={9783836219976},
+  series={Galileo Computing},
+  url={http://books.google.de/books?id=hWqwMAEACAAJ},
+  year={2012},
+  publisher={Galileo Press GmbH}
+}
+
+
+@book{nathan2010wpf,
+  title={WPF 4: Unleashed},
+  author={Nathan, A.},
+  isbn={9780672331190},
+  lccn={2010017765},
+  url={http://books.google.co.uk/books?id=x0uXRAAACAAJ},
+  year={2010},
+  publisher={Sams Publishing}
+}
+
+@book{kuehnel2010cs,
+  title={Visual C\# 2010},
+  author={Andreas Kühnel},
+  isbn={9783836215527},
+  url={http://openbook.galileocomputing.de/visual_csharp_2010/index.htm},
+  year={2010},
+  publisher={Galileo Computing}
+}
+
+@Misc{agilent:2013,
+  author = {Agilent},
+  title = {Agilent Flyer},
+  howpublished = {\url{http://www.agilent.de/German/about/companyinfo/Agilent_flyer.pdf}},
+  year = {2013},
+  note = {Einsichtsdatum: 01.09.2013}
+}
+
+@Misc{cygwin:2012,
+  author = {Cygwin},
+  title = {Cygwin User's Guide},
+  howpublished = {\url{http://cygwin.com/cygwin-ug-net/cygwin-ug-net.pdf}},
+  year = {2012},
+  note = {Einsichtsdatum: 01.09.2013}
+}
+
+@book{geeb:2003,
+  title = {Das XML/XSLT-Seminar},
+  author = {Franziskus Geeb},
+  publisher = {\url{www.xml-xslt.de}},
+  year = {2003},
+  isbn = {978-3934424135}
+}
+
+@book{ploetner:2012,
+  title = {Linux - Das umfassende Handbuch},
+  author = {Johannes Plötner, Steffen Wendzel},
+  publisher = {Galileo Computing},
+  year = {2012},
+  isbn = {978-3-8362-1822-1}
+}
+
+@Misc{microsoft:2013,
+  author = {Microsoft},
+  title = {MSDN - Microsoft Developer Network},
+  howpublished = {\url{http://msdn.microsoft.com/de-de}},
+  year = {2013},
+  note = {Einsichtsdatum: 01.09.2013}
+}
+
+@Misc{microsoft:2014,
+  author = {Microsoft},
+  title = {MSDN - Microsoft Developer Network},
+  howpublished = {\url{http://msdn.microsoft.com/de-de}},
+  year = {2014},
+  note = {Einsichtsdatum: 18.02.2014}
+}
+
+@Misc{python:2014,
+  author = {IronPython Team, Microsoft Corporation, Python Software Foundation},
+  title = {IronPython Documentation},
+  howpublished = {\url{http://ironpython-test.readthedocs.org/en/latest/contents.html}},
+  year = {2014},
+  note = {Einsichtsdatum: 26.02.2014}
+}
+
+@Misc{agilent:poster1,
+  author = {Agilent},
+  title = {BER - What is it?},
+  year = {2000},
+  howpublished = {\autoref{BER_1.png}}
+}
+
+@Misc{agilent:poster2,
+  author = {Agilent},
+  title = {BER - What is it telling you?},
+  year = {2000},
+  howpublished = {\autoref{BER_7.png}}
+}
