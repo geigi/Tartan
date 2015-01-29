@@ -7,7 +7,7 @@ from PhotoGallery.models import Album, Photo
 def overview(request):
     albumList = Album.objects.order_by('name')
     context = {'albumList': albumList}
-    return render(request, 'PhotoGallery/overview.thtm', context)
+    return render(request, 'PhotoGallery/gallery.thtm', context)
 
     
 def albumDetail(request, albumid):
@@ -24,5 +24,5 @@ def imageDetail(request, imgid):
     except Photo.DoesNotExist:
         raise Http404
     context = {'img':img}
-    return render(request, 'PhotoGallery/detailed.thtm', context)
+    return render(request, 'PhotoGallery/carousel.thtm', context)
     
