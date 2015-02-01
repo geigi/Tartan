@@ -27,3 +27,4 @@ media/
 *.pdf
 *.fls
 *.lol
+*.pyc
