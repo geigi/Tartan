@@ -24,8 +24,11 @@ media/
 *.mtc1
 *.out
 *.synctex.gz
-*.pdf
 *.fls
 *.lol
 *.pyc
 *.fdb_latexmk
+docu.pdf
+*.fdb_latexmk
+
+docu/docu.fdb_latexmk
