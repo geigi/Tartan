@@ -28,3 +28,4 @@ media/
 *.fls
 *.lol
 *.pyc
+*.fdb_latexmk
