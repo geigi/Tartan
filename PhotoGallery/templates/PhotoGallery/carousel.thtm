@@ -1,7 +1,9 @@
+{% extends "base.html" %}
+
 {% load staticfiles %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
+
+{% block head %}
+
 	<title>Schwarzes Album mit nem silbernen Knopf</title>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -18,8 +20,10 @@
 	<script type="text/javascript" src="{% static "lib/scrollPane/script/jquery.mousewheel.js" %}"></script>
 	<!-- the jScrollPane script -->
 	<script type="text/javascript" src="{% static "lib/scrollPane/script/jquery.jscrollpane.min.js" %}"></script>
-</head>
-<body>
+    
+{% endblock %}
+
+{% block body %}
 
 <div class="top-div">
 	<div class="back-img-container">
@@ -82,5 +86,4 @@
 	</div>
 </div>
 
-</body>
-</html>
+{% endblock %}
