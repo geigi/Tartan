@@ -1,7 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-	<title>Schwarzes Album mit nem silbernen Knopf</title>
+{% extends "base.html" %}
+
+{% block head %}
+
+	<title>Album: {{album.name}}</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="/static/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="/static/css/album.css" />
@@ -10,9 +11,10 @@
 
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="/static/lib/dropdown/css/style.css" />
-</head>
-<body>
 
+{% endblock %}
+
+{% block body %}
 <div class="top-div">
 	<div class="back-img-container">
 		<a href="gallery.html">
@@ -64,6 +66,4 @@
 		</a>
 	{% endfor %}
 </div>
-
-</body>
-</html>
+{% endblock %}
