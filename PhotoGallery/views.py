@@ -36,6 +36,14 @@ def imageDetail(request, imgid):
     else:
         prev = False
 
-    context = {'img':img, 'next':next, 'prev':prev}
+    try:
+        dia = request.GET["dia"]
+        dur = int(dia)
+        if (dur <= 0):
+            dur = False
+    except (ValueError, KeyError):
+        dur = False
+    
+    context = {'img':img, 'next':next, 'prev':prev, 'diaDuration': dur}
     return render(request, 'PhotoGallery/carousel.thtm', context)
     
