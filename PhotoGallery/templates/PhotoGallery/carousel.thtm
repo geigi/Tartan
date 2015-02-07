@@ -3,24 +3,30 @@
 {% load staticfiles %}
 
 {% block head %}
-
     <title>{{img.album.name}}</title>
 
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    {% if diaDuration and next %}
+    <meta http-equiv="refresh" content="{{diaDuration}}; URL={% url 'imageDetail' next.id %}?dia={{diaDuration}}">
+    {% endif %}
+    
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
 	<link rel="stylesheet" type="text/css" href="{% static "css/carousel.css" %}" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-	<script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
-	<!-- styles needed by jScrollPane - include in your own sites -->
 	<link type="text/css" href="{% static "lib/scrollPane/style/jquery.jscrollpane.css" %}" rel="stylesheet" media="all" />
-	<!-- the styles for the lozenge theme -->
 	<link type="text/css" href="{% static "lib/scrollPane/themes/lozenge/style/jquery.jscrollpane.lozenge.css" %}" rel="stylesheet" media="all" />
-	<!-- the mousewheel plugin -->
-	<script type="text/javascript" src="{% static "lib/scrollPane/script/jquery.mousewheel.js" %}"></script>
-	<!-- the jScrollPane script -->
-	<script type="text/javascript" src="{% static "lib/scrollPane/script/jquery.jscrollpane.min.js" %}"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.mousewheel.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.jscrollpane.min.js' %}"></script>
+    <script type="text/javascript">
+    {% if diaDuration and next %}
+        var nextUrl = "{% url 'imageDetail' next.id %}?dia={{diaDuration}}";
+    {% else %}
+        var nextUrl = false;
+    {% endif %}
+    </script>
     
 {% endblock %}
 
@@ -82,6 +88,7 @@
         {% endif %}
         
 		<i id="play" class="fa fa-fw fa-play fa-lg" onclick="diashow()"></i>
+        
         {% if next %}
 		<a href = "{% url 'imageDetail' next.id %}">
             <i class="fa fa-fw fa-forward fa-lg"></i>
