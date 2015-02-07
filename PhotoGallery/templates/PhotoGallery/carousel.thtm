@@ -4,7 +4,8 @@
 
 {% block head %}
 
-	<title>Schwarzes Album mit nem silbernen Knopf</title>
+    <title>{{img.album.name}}</title>
+
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
@@ -27,7 +28,7 @@
 
 <div class="top-div">
 	<div class="back-img-container">
-		<a href="album.html">
+		<a href="{% url 'albumDetail' img.album.id %}">
 			<i class="fa fa-arrow-circle-left fa-2x"></i>
 		</a>
 	</div>
@@ -74,9 +75,18 @@
 <div class="bottom-div">
 	<div class="player">
 		<!-- <i class="fa fa-fw fa-step-backward"></i> -->
-		<i class="fa fa-fw fa-backward fa-lg" onclick="prev()"></i>
+        {% if prev %}
+		<a href = "{% url 'imageDetail' prev.id %}">
+            <i class="fa fa-fw fa-backward fa-lg"></i>
+        </a>
+        {% endif %}
+        
 		<i id="play" class="fa fa-fw fa-play fa-lg" onclick="diashow()"></i>
-		<i class="fa fa-fw fa-forward fa-lg" onclick="next()"></i>
+        {% if next %}
+		<a href = "{% url 'imageDetail' next.id %}">
+            <i class="fa fa-fw fa-forward fa-lg"></i>
+        </a>
+        {% endif %}
 		<!-- <i class="fa fa-fw fa-step-forward"></i> -->
 	</div>
 	<div class="description">
