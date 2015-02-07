@@ -23,6 +23,19 @@ def imageDetail(request, imgid):
         img = Photo.objects.get(id=imgid)
     except Photo.DoesNotExist:
         raise Http404
-    context = {'img':img}
+        
+    q = img.album.photo_set.filter(id__gt=imgid).order_by('id')[:1]
+    if (q):
+        next = q[0]
+    else:
+        next = False
+    
+    q = img.album.photo_set.filter(id__lt=imgid).order_by('-id')[:1]
+    if (q):
+        prev = q[0]
+    else:
+        prev = False
+
+    context = {'img':img, 'next':next, 'prev':prev}
     return render(request, 'PhotoGallery/carousel.thtm', context)
     

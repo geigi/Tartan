@@ -17,7 +17,7 @@
 {% block body %}
 <div class="top-div">
 	<div class="back-img-container">
-		<a href="gallery.html">
+		<a href="{% url 'albumIndex' %}">
 			<i class="fa fa-arrow-circle-left fa-2x"></i>
 		</a>
 	</div>
