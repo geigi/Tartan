@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/carousel.css" %}" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-	<script src="js/carousel.js"></script>
+	<script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
 	<!-- styles needed by jScrollPane - include in your own sites -->
 	<link type="text/css" href="{% static "lib/scrollPane/style/jquery.jscrollpane.css" %}" rel="stylesheet" media="all" />
 	<!-- the styles for the lozenge theme -->
