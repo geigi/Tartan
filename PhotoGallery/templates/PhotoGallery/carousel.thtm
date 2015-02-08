@@ -20,13 +20,21 @@
 	<script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
 	<script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.mousewheel.js' %}"></script>
 	<script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.jscrollpane.min.js' %}"></script>
-    <script type="text/javascript">
-    {% if diaDuration and next %}
-        var nextUrl = "{% url 'imageDetail' next.id %}?dia={{diaDuration}}";
-    {% else %}
-        var nextUrl = false;
-    {% endif %}
-    </script>
+
+  <script type="text/javascript">
+  // Hier komplette URL zum nächsten Bild einfügen (für Diashow und Tastaturkürzel)
+  {% if diaDuration and next %}
+      var nextUrl = "{% url 'imageDetail' next.id %}?dia={{diaDuration}}";
+  {% else %}
+      var nextUrl = false;
+  {% endif %}
+
+  // Hier komplette URL zum vorherigen Bild einfügen (für Tastaturkürzel)
+  var prevUrl;
+
+  // Hier Pfad/Name zum aktuellen Bild einfügen, sonst funktioniert auch der Spinner nicht!
+  var picName;
+  </script>
     
 {% endblock %}
 
@@ -49,7 +57,7 @@
 	</div> -->
 </div>
 
-<div class="container" id="container">
+<div class="container" id="container" onload="init()">
 	<div id="panel1" class="panel pic">
 		<div id="loader" style="display:none">
 			<i class="fa fa-refresh fa-spin fa-4x"></i>
