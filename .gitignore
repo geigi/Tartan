@@ -30,3 +30,5 @@ media/
 *.fdb_latexmk
 docu/docu.fdb_latexmk
 docu/dokumentation.pdf
+
+docu/docu.pdf

@@ -7,7 +7,7 @@
 		}
 	],
 	"options": {
-		"root": "dokumentation.tex",
+		"root": "docu.tex",
 		"pdf": "docu"
 	}
 }
