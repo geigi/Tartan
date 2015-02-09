@@ -28,5 +28,7 @@ media/
 *.lol
 *.pyc
 *.fdb_latexmk
-docu.pdf
 docu/docu.fdb_latexmk
+docu/dokumentation.pdf
+
+docu/docu.pdf
