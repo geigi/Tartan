@@ -23,17 +23,59 @@
 
   <script type="text/javascript">
   // Hier komplette URL zum nächsten Bild einfügen (für Diashow und Tastaturkürzel)
-  {% if diaDuration and next %}
-      var nextUrl = "{% url 'imageDetail' next.id %}?dia={{diaDuration}}";
-  {% else %}
-      var nextUrl = false;
-  {% endif %}
+  
+    var nextInfo =
+        {% if next %}
+            "{% url 'imageJsonInfo' next.id %}";
+        {% else %}
+            false;
+        {% endif %}
+    var prevInfo =
+        {% if prev %}
+            "{% url 'imageJsonInfo' prev.id %}";
+        {% else %}
+            false;
+        {% endif %}
+    
+    function ChangeImage(next)
+    {
+        if (next)
+            info = JsonReq(nextInfo);
+        else
+            info = JsonReq(prevInfo);
+        doChange(info);
+    }
 
-  // Hier komplette URL zum vorherigen Bild einfügen (für Tastaturkürzel)
-  var prevUrl;
+    function JsonReq(url)
+    {
+        req = new XMLHttpRequest();
+        req.open( "GET", url, false );
+        req.send( null );
+        result = JSON.parse(req.responseText);
+        return result;
+    }
+    
+    function doChange(info)
+    {
+        document.getElementById("fullPic").src = info.currImgUrl;
+        window.history.pushState("object or string", "Title", info.currSiteUrl);
+        if (info.nextInfoUrl)
+        {
+            nextInfo = info.nextInfoUrl;
+            document.getElementById("nextPicBtn").style.visibility= "visible";
 
-  // Hier Pfad/Name zum aktuellen Bild einfügen, sonst funktioniert auch der Spinner nicht!
-  var picName;
+        }
+        else
+            document.getElementById("nextPicBtn").style.visibility= "hidden";
+        
+        if (info.prevInfoUrl)
+        {
+            prevInfo = info.prevInfoUrl;
+            document.getElementById("prevPicBtn").style.visibility= "visible";
+        }
+        else
+            document.getElementById("prevPicBtn").style.visibility= "hidden";
+    }
   </script>
     
 {% endblock %}
@@ -88,20 +130,24 @@
 
 <div class="bottom-div">
 	<div class="player">
-		<!-- <i class="fa fa-fw fa-step-backward"></i> -->
-        {% if prev %}
-		<a href = "{% url 'imageDetail' prev.id %}">
+		<a 
+          id="prevPicBtn"
+          href = "{% if prev %}{% url 'imageDetail' prev.id %}{% endif %}"
+          onclick="ChangeImage(false); return false;"
+          style = "visibility: {% if prev %}visible{% else %}hidden{% endif %}" >
             <i class="fa fa-fw fa-backward fa-lg"></i>
         </a>
-        {% endif %}
+        
         
 		<i id="play" class="fa fa-fw fa-play fa-lg" onclick="diashow()"></i>
         
-        {% if next %}
-		<a href = "{% url 'imageDetail' next.id %}">
+		<a 
+          id="nextPicBtn"
+          href = "{% if next %}{% url 'imageDetail' next.id %}{% endif %}"
+          onclick="ChangeImage(true); return false;"
+          style = "visibility: {% if next %}visible{% else %}hidden{% endif %}">
             <i class="fa fa-fw fa-forward fa-lg"></i>
         </a>
-        {% endif %}
 		<!-- <i class="fa fa-fw fa-step-forward"></i> -->
 	</div>
 	<div class="description">

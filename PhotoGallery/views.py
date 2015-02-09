@@ -1,8 +1,9 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
-
+from  django.core.urlresolvers import reverse
 from PhotoGallery.models import Album, Photo
 
+import json
 
 def overview(request):
     albumList = Album.objects.order_by('name')
@@ -47,3 +48,44 @@ def imageDetail(request, imgid):
     context = {'img':img, 'next':next, 'prev':prev, 'diaDuration': dur}
     return render(request, 'PhotoGallery/carousel.thtm', context)
     
+def imageJsonInfo (request, imgid):
+    try:
+        img = Photo.objects.get(id=imgid)
+    except Photo.DoesNotExist:
+        raise Http404
+        
+    q = img.album.photo_set.filter(id__gt=imgid).order_by('id')[:1]
+    if (q):
+        next = q[0]
+    else:
+        next = False
+    
+    q = img.album.photo_set.filter(id__lt=imgid).order_by('-id')[:1]
+    if (q):
+        prev = q[0]
+    else:
+        prev = False
+
+    try:
+        dia = request.GET["dia"]
+        dur = int(dia)
+        if (dur <= 0):
+            dur = False
+    except (ValueError, KeyError):
+        dur = False
+    
+    jsonInfo = {}
+    jsonInfo['name'] = img.name
+    jsonInfo['currImgUrl'] = img.imgOrig.url
+    jsonInfo['currSiteUrl'] = reverse('imageDetail', kwargs = {'imgid': img.id} )
+    if (next):
+        jsonInfo['nextInfoUrl'] = reverse('imageJsonInfo', kwargs = {'imgid': next.id} )
+    else:
+        jsonInfo['nextInfoUrl'] = False
+    if (prev):
+        jsonInfo['prevInfoUrl'] = reverse('imageJsonInfo', kwargs = {'imgid': prev.id} )
+    else:
+        jsonInfo['prevInfoUrl'] = False
+    
+    
+    return HttpResponse(json.dumps(jsonInfo), content_type="application/json")
