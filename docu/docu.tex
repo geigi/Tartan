@@ -51,12 +51,14 @@
 	\end{spacing}
 	\newpage
 	
-	\setcounter{page}{1}
+	% \setcounter{page}{1}
 	
 
 %	\pagestyle{cb}
 %\setcounter{secnumdepth}{3}
 \setcounter{page}{1}
+
+\pagenumbering{gobble}
 
 	% Inhaltsverzeichnis
 	\begin{spacing}{1.1}
@@ -67,12 +69,8 @@
 	\end{spacing}
 	\newpage
 
-
-
+\pagenumbering{arabic}
 	\renewcommand{\thepage}{\arabic{page}}
-	
-	
-	
 	\renewcommand{\thechapter}{\arabic{chapter}}
 	\renewcommand*{\chapterpagestyle}{scrheadings}
 	
