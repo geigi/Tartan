@@ -105,7 +105,7 @@
 			<i class="fa fa-refresh fa-spin fa-4x"></i>
 		</div>
 		<div class="panel-body panel-body-preview">
-			<img id="fullPic" class="" src="{{img.imgOrig.url}}"/>
+			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgOrig.url}}"/>
 			<div class="navigator nav-left" onclick="ChangeImage(false);" onmouseover="show('nav-left')" onmouseout="hide('nav-left')">
 				<div class="grey" id="nav-left">
 					<i class="fa fa-backward overlay-left fa-2x"></i>
@@ -134,7 +134,7 @@
           id="prevPicBtn"
           href = "{% if prev %}{% url 'imageDetail' prev.id %}{% endif %}"
           onclick="ChangeImage(false); return false;"
-          style = "visibility: {% if prev %}visible{% else %}hidden{% endif %}" >
+          style = "visibility: {% if prev %}visible{% else %}hidden{% endif %}">
             <i class="fa fa-fw fa-backward fa-lg"></i>
         </a>
         

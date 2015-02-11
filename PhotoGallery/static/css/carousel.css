@@ -117,3 +117,7 @@ img {
 	bottom: 100px;
 	overflow: auto;
 }
+
+a {
+	text-decoration: none;
+}
