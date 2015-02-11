@@ -16,6 +16,10 @@ span {
 	color: #808080;
 }
 
+a {
+	text-decoration: none;
+}
+
 a:link {
   color: #A0A0A0;
 }
