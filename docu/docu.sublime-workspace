@@ -52,9 +52,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 107.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
 			[
 				"commen",
 				"Toggle Comment"

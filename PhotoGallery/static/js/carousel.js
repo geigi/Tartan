@@ -55,11 +55,11 @@ function getGet(index) {
 }
 
 function prev() {
-  window.location = "carousel.html?img=" + (curPic - 1) + "&dia=" + dia;
+  ChangeImage(false);
 }
 
 function next() {
-  window.location = "carousel.html?img=" + (parseInt(curPic) + 1) + "&dia=" + dia;
+  ChangeImage(true);
 }
 
 function imgLoaded() {
