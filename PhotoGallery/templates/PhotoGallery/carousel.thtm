@@ -99,27 +99,29 @@
 	</div> -->
 </div>
 
-<div class="container" id="container" onload="init()">
-	<div id="panel1" class="panel pic">
-		<div id="loader" style="display:none">
-			<i class="fa fa-refresh fa-spin fa-4x"></i>
-		</div>
-		<div class="panel-body panel-body-preview">
-			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgOrig.url}}"/>
-			<div class="navigator nav-left" onclick="ChangeImage(false);" onmouseover="show('nav-left')" onmouseout="hide('nav-left')">
-				<div class="grey" id="nav-left">
-					<i class="fa fa-backward overlay-left fa-2x"></i>
-				</div>
-			</div>
-			<div class="navigator nav-right" onclick="ChangeImage(true);" onmouseover="show('nav-right')" onmouseout="hide('nav-right')">
-				<div class="grey" id="nav-right">
-					<i class="fa fa-forward overlay-right fa-2x"></i>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-	
+<div class="canvas">
+    <div class="container" id="container" onload="init()">
+    	<div id="panel1" class="panel pic">
+    		<div id="loader" style="display:none">
+    			<i class="fa fa-refresh fa-spin fa-4x"></i>
+    		</div>
+    		<div class="panel-body panel-body-preview">
+    			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgOrig.url}}"/>
+    	    </div>
+    	</div>
+    </div>
+    <div class="navigator nav-left" onclick="ChangeImage(false);" onmouseover="show('nav-left')" onmouseout="hide('nav-left')">
+        <div class="grey" id="nav-left">
+            <i class="fa fa-backward overlay-left fa-2x"></i>
+        </div>
+    </div>
+    <div class="navigator nav-right" onclick="ChangeImage(true);" onmouseover="show('nav-right')" onmouseout="hide('nav-right')">
+        <div class="grey" id="nav-right">
+            <i class="fa fa-forward overlay-right fa-2x"></i>
+        </div>
+    </div>
+</div>	
+
 <div class="picker">
 	{% for thumb in img.album.photo_set.all %}
 		<a href="{% url 'imageDetail' thumb.id %}">
