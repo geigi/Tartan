@@ -1,6 +1,6 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
-from  django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse
 from PhotoGallery.models import Album, Photo
 
 import json
@@ -16,7 +16,27 @@ def albumDetail(request, albumid):
         album = Album.objects.get(id=albumid)
     except Album.DoesNotExist:
         raise Http404
-    context = {'album': album}
+    
+    def sortparse(rawval):
+        return {
+            'oldest':'-added',
+            'newest':'added',
+            'name':'name',
+            'namereverse':'-name',
+            }.get(rawval)
+    
+    orderParam = request.GET.get('ordering')
+    ordering = sortparse(orderParam)
+     
+    imgSet = album.photo_set #do not pass this to template, its not iterable!
+    
+    if (ordering):
+        imgList = imgSet.order_by(ordering, 'pk')
+    else:
+        imgList = imgSet.all
+    
+    context = {'album': album, 'imgList': imgList}
+
     return render(request, 'PhotoGallery/album.thtm', context)
 
 def imageDetail(request, imgid):

@@ -54,7 +54,8 @@
 </div-->
 
 <div class="container" id="main-container">
-	{% for img in album.photo_set.all %}
+    {
+	{% for img in imgList %}
 	<!-- Album snippet -->
 	<!-- für jedes Bild im Album zu container div hinzufügen -->
 		<a href="{% url 'imageDetail' img.id %}"> <!-- link zu carousel mit angabe des bildes -->
