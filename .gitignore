@@ -1,6 +1,5 @@
 media/
 *.sqlite3
-*.jpg
 *.aux
 *.glo
 *.idx
