@@ -123,3 +123,8 @@ img {
 	position: relative;
 	margin-right: 36px;
 }
+
+.description {
+	display: block;
+	overflow: auto;
+}
