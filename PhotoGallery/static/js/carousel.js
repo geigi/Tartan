@@ -10,7 +10,6 @@ $(window).resize(function(){
 function init() {
   document.onkeydown = checkKey;
   initDiashow();
-  initImg();
   initPicker();
 }
 
