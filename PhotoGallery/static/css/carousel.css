@@ -125,6 +125,6 @@ img {
 }
 
 .description {
-	display: block;
 	overflow: auto;
+	height: 74%;
 }
