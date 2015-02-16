@@ -88,6 +88,9 @@
 			<i class="fa fa-arrow-circle-left fa-2x"></i>
 		</a>
 	</div>
+    <span class="title">
+    Pic title
+    </span>
 	<!-- <div class="order-by-container">
 		<span class="info-text">
 			Order by:

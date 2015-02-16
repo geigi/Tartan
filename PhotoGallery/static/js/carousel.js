@@ -13,15 +13,8 @@ function init() {
   initPicker();
 }
 
-function initImg() {
-  picName = getGet('img');
-  curPic = picName;
-  img = document.getElementById("fullPic");
-  img.src = "sample/" + picName + ".jpg";
-}
-
 function resizeImg() {
-  var height = parseInt($(window).height()) - 200;
+  var height = parseInt($(window).height()) - 150;
 
   $('.fullPic').css({
     'max-width': $(window).width(),

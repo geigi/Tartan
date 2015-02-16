@@ -84,6 +84,7 @@ img {
 #nav-right {
 	width: 40px;
 	float: right;
+	margin-right: 40px;
 }
 
 .panel-body {
@@ -121,10 +122,18 @@ img {
 
 .canvas {
 	position: relative;
-	margin-right: 36px;
 }
 
 .description {
 	overflow: auto;
 	height: 74%;
+}
+
+.title {
+	text-align: center;
+	display: block;
+	font-size: 200%;
+	transform: translateX(-23px);
+	-webkit-transform: translateX(-23px); 
+  -o-transform: translateX(-23px);
 }
