@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
 {% block head %}
 
 	<title>Album: {{album.name}}</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="/static/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="/static/css/album.css" />
-	<script src="/static/js/album.js"></script>
+	<script type="text/javascript" src="{% static 'js/album.js' %}"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -28,12 +30,15 @@
 			</span>
 		</div>
 		<div class="dropdown dropdown-dark">
-			<select name="sort" class="dropdown-select">
-				<form>
-					<option>Name</option>
-					<option>Upload Date</option>
-				</form>
-			</select>
+			<form action="" method="get">
+				<select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
+					<option value="name">a-z</option>
+					<option value="namereverse">z-a</option>
+					<option value="newest">oldest first</option>
+					<option value="oldest">newest first</option>
+				</select>
+				<input type="submit" value="Filter"/>
+			</form>
 		</div>
 	</div>
 	<!--div id="searchContainer">
@@ -67,4 +72,8 @@
 		</a>
 	{% endfor %}
 </div>
+
+<script type="text/javascript">
+	init();
+</script>
 {% endblock %}
