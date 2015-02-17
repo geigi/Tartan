@@ -144,4 +144,23 @@ function initPicker() {
         }
       );
   });
+
+  refreshPicker();
+}
+
+function refreshPicker() {
+  $('.picker').each(
+    function() {
+      var api = $(this).data('jsp');
+      var throttleTimeout;
+      if (!throttleTimeout) {
+        throttleTimeout = setTimeout(
+          function() {
+            api.reinitialise();
+            throttleTimeout = null;
+          },
+          50
+        );
+      }
+  });
 }
