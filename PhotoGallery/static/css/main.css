@@ -90,9 +90,11 @@ input[type=text]{
 	display: inline-block;
 	transform: translateY(-40%);
 	-o-transform: translateY(-40%);
+	-webkit-transform: translateY(-40%); 
 }
 
 .dropdown {
   transform: translateY(8%);
   -o-transform: translateY(8%); 
+	-webkit-transform: translateY(8%); 
 }
