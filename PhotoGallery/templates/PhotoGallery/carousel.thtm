@@ -17,9 +17,9 @@
 	<link type="text/css" href="{% static "lib/scrollPane/style/jquery.jscrollpane.css" %}" rel="stylesheet" media="all" />
 	<link type="text/css" href="{% static "lib/scrollPane/themes/lozenge/style/jquery.jscrollpane.lozenge.css" %}" rel="stylesheet" media="all" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.mousewheel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.jscrollpane.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
-	<script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.mousewheel.js' %}"></script>
-	<script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.jscrollpane.min.js' %}"></script>
 
   <script type="text/javascript">
   // Hier komplette URL zum nächsten Bild einfügen (für Diashow und Tastaturkürzel)
