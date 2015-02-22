@@ -48,14 +48,24 @@ function getGet(index) {
 
 function prev() {
   ChangeImage(false);
+
+  var img = document.getElementsByClassName("fullPic")[0];
+  setPickerPosition(img.id);
+
+  refreshPicker();
 }
 
 function next() {
   ChangeImage(true);
+
+  var img = document.getElementsByClassName("fullPic")[0];
+  setPickerPosition(img.id);
+
+  refreshPicker();
 }
 
 function imgLoaded() {
-  img = document.getElementById("fullPic");
+  img = document.getElementsByClassName("fullPic")[0];
   if (img.height > 0)
   {
     resizeImg();
@@ -122,7 +132,7 @@ function diashow() {
 function initPicker() {
   $('.picker').jScrollPane({
     showArrows: true,
-    animateScroll: true,
+    animateScroll: false,
     arrowScrollOnHover: true
   });
 
@@ -145,6 +155,9 @@ function initPicker() {
       );
   });
 
+  var img = document.getElementsByClassName("fullPic")[0];
+  setPickerPosition(img.id);
+
   refreshPicker();
 }
 
@@ -163,4 +176,21 @@ function refreshPicker() {
         );
       }
   });
+}
+
+function setPickerPosition(pic_name) {
+  // var thumbs = document.getElementById("picker").childNodes;
+  // var position = 0;
+  // for (i=0; i<thumbs.length; i++) {
+  //   position++;
+  //   var img = thumbs[i].id;
+
+  //   if (img == pic_name) {
+  //     break;
+  //   }
+  // }
+
+  var pane = $('.picker');
+  var api = pane.data('jsp');
+  api.scrollToY((parseInt(pic_name) - 1) * 50);
 }
