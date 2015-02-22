@@ -73,4 +73,7 @@
 	{% endfor %}
 </div>
 
+<script type="text/javascript">
+	init();
+</script>
 {% endblock %}
