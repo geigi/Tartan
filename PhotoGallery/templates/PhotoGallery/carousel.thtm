@@ -57,7 +57,7 @@
     
     function doChange(info)
     {
-        document.getElementById("fullPic").src = info.currImgUrl;
+        document.getElementsByClassName("fullPic")[0].src = info.currImgUrl;
         window.history.pushState("object or string", "Title", info.currSiteUrl);
         if (info.nextInfoUrl)
         {
@@ -111,25 +111,25 @@
     			<i class="fa fa-refresh fa-spin fa-4x"></i>
     		</div>
     		<div class="panel-body panel-body-preview">
-    			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgOrig.url}}"/>
+    			<img id="{{img.id}}" class="fullPic" onload="imgLoaded()" src="{{img.imgOrig.url}}"/>
     	    </div>
     	</div>
     </div>
-    <div class="navigator nav-left" onclick="ChangeImage(false);" onmouseover="show('nav-left')" onmouseout="hide('nav-left')">
+    <div class="navigator nav-left" onclick="prev();" onmouseover="show('nav-left')" onmouseout="hide('nav-left')">
         <div class="grey" id="nav-left">
             <i class="fa fa-backward overlay-left fa-2x"></i>
         </div>
     </div>
-    <div class="navigator nav-right" onclick="ChangeImage(true);" onmouseover="show('nav-right')" onmouseout="hide('nav-right')">
+    <div class="navigator nav-right" onclick="next();" onmouseover="show('nav-right')" onmouseout="hide('nav-right')">
         <div class="grey" id="nav-right">
             <i class="fa fa-forward overlay-right fa-2x"></i>
         </div>
     </div>
 </div>	
 
-<div class="picker">
+<div class="picker" id="picker">
 	{% for thumb in img.album.photo_set.all %}
-		<a href="{% url 'imageDetail' thumb.id %}">
+		<a href="{% url 'imageDetail' thumb.id %}" id="{{thumb.id}}">
 			<img src="{{thumb.imgThumb.url}}"></img>
 		</a>
 	{% endfor %}
@@ -140,7 +140,7 @@
 		<a 
           id="prevPicBtn"
           href = "{% if prev %}{% url 'imageDetail' prev.id %}{% endif %}"
-          onclick="ChangeImage(false); return false;"
+          onclick="prev(); return false;"
           style = "visibility: {% if prev %}visible{% else %}hidden{% endif %}">
             <i class="fa fa-fw fa-backward fa-lg"></i>
         </a>
@@ -151,7 +151,7 @@
 		<a 
           id="nextPicBtn"
           href = "{% if next %}{% url 'imageDetail' next.id %}{% endif %}"
-          onclick="ChangeImage(true); return false;"
+          onclick="next(); return false;"
           style = "visibility: {% if next %}visible{% else %}hidden{% endif %}">
             <i class="fa fa-fw fa-forward fa-lg"></i>
         </a>
