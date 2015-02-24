@@ -60,7 +60,9 @@
     function doChange(info)
     {
         document.getElementById("fullPic").src = info.currImgUrl;
+        document.getElementById("name").innerHTML = info.name;
         document.getElementById("description").innerHTML = info.description;
+        
         window.history.pushState("object or string", "Title", info.currSiteUrl);
         if (info.nextInfoUrl)
         {
@@ -94,8 +96,8 @@
 		</a>
 	</div>
     <div class="title_container">
-        <span class="title">
-        Pic title
+        <span id="name" class="title">
+        {{img.name}}
         </span>
     </div>
 	<!-- <div class="order-by-container">
