@@ -129,7 +129,7 @@
 
 <div class="picker" id="picker">
 	{% for thumb in img.album.photo_set.all %}
-		<a href="{% url 'imageDetail' thumb.id %}" id="{{thumb.id}}">
+		<a href="{% url 'imageDetail' thumb.id %}" class="inactive" id="thumb{{thumb.id}}">
 			<img src="{{thumb.imgThumb.url}}"></img>
 		</a>
 	{% endfor %}
