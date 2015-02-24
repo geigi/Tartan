@@ -95,6 +95,7 @@ def imageJsonInfo (request, imgid):
         dur = False
     
     jsonInfo = {}
+    jsonInfo['id'] = img.id
     jsonInfo['name'] = img.name
     jsonInfo['description'] = img.description
     jsonInfo['currImgUrl'] = img.imgOrig.url
