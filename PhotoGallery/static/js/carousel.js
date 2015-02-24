@@ -49,9 +49,8 @@ function getGet(index) {
 function prev() {
   ChangeImage(false);
 
-  var img = document.getElementsByClassName("fullPic")[0];
-  setPickerPosition(img.id);
-  activePicker(false, parseInt(img.id) + 1);
+  setPickerPosition(currentId);
+  activePicker(false, currentId + 1);
 
   refreshPicker();
 }
@@ -59,15 +58,14 @@ function prev() {
 function next() {
   ChangeImage(true);
 
-  var img = document.getElementsByClassName("fullPic")[0];
-  setPickerPosition(img.id);
-  activePicker(false, parseInt(img.id) - 1);
+  setPickerPosition(currentId);
+  activePicker(false, currentId - 1);
 
   refreshPicker();
 }
 
 function imgLoaded() {
-  img = document.getElementsByClassName("fullPic")[0];
+  img = document.getElementById("fullPic");
   if (img.height > 0)
   {
     resizeImg();
@@ -157,8 +155,7 @@ function initPicker() {
       );
   });
 
-  var img = document.getElementsByClassName("fullPic")[0];
-  setPickerPosition(img.id);
+  setPickerPosition(currentId);
 
   refreshPicker();
 }
@@ -194,14 +191,14 @@ function setPickerPosition(pic_name) {
 
   var pane = $('.picker');
   var api = pane.data('jsp');
-  api.scrollToY((parseInt(pic_name) - 1) * 50);
+  api.scrollToY((parseInt(pic_name) - 2) * 50);
 
   activePicker(true, pic_name);
 }
 
 function activePicker(active, pic_id) {
   var picker_prev = document.getElementById("thumb" + pic_id);
-  if active {
+  if (active) {
     picker_prev.className = "";
   }
   else {
