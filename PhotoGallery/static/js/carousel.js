@@ -51,6 +51,7 @@ function prev() {
 
   var img = document.getElementsByClassName("fullPic")[0];
   setPickerPosition(img.id);
+  activePicker(false, parseInt(img.id) + 1);
 
   refreshPicker();
 }
@@ -60,6 +61,7 @@ function next() {
 
   var img = document.getElementsByClassName("fullPic")[0];
   setPickerPosition(img.id);
+  activePicker(false, parseInt(img.id) - 1);
 
   refreshPicker();
 }
@@ -193,4 +195,16 @@ function setPickerPosition(pic_name) {
   var pane = $('.picker');
   var api = pane.data('jsp');
   api.scrollToY((parseInt(pic_name) - 1) * 50);
+
+  activePicker(true, pic_name);
+}
+
+function activePicker(active, pic_id) {
+  var picker_prev = document.getElementById("thumb" + pic_id);
+  if active {
+    picker_prev.className = "";
+  }
+  else {
+    picker_prev.className = "inactive";
+  }
 }

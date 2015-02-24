@@ -139,3 +139,11 @@ img {
 	font-size: 200%;
 	left: 43.5%;
 }
+
+.inactive {
+	opacity: 0.5;
+}
+
+.inactive:hover {
+	opacity: 0.9;
+}
