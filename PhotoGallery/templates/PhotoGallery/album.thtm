@@ -59,18 +59,18 @@
 </div-->
 
 <div class="container" id="main-container">
-    {
-	{% for img in imgList %}
-	<!-- Album snippet -->
-	<!-- für jedes Bild im Album zu container div hinzufügen -->
-		<a href="{% url 'imageDetail' img.id %}"> <!-- link zu carousel mit angabe des bildes -->
-			<div id="" class="panel pic-preview"> <!-- Bild Name in ID einfügen -->
-				<div class="panel-body panel-body-preview">
-					<img class="image-preview" src="{{img.imgPreview.url}}" />
-				</div>
-			</div>
-		</a>
-	{% endfor %}
+    
+    {% for img in imgList %}
+    <!-- Album snippet -->
+    <!-- für jedes Bild im Album zu container div hinzufügen -->
+        <a href="{% url 'imageDetail' img.id %}"> <!-- link zu carousel mit angabe des bildes -->
+            <div id="" class="panel pic-preview"> <!-- Bild Name in ID einfügen -->
+                <div class="panel-body panel-body-preview">
+                    <img class="image-preview" src="{{img.imgPreview.url}}" />
+                </div>
+            </div>
+        </a>
+    {% endfor %}
 </div>
 
 <script type="text/javascript">
