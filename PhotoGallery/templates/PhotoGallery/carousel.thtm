@@ -36,6 +36,8 @@
         {% else %}
             false;
         {% endif %}
+        
+    var currentId = {{img.id}};
     
     function ChangeImage(next)
     {
@@ -76,6 +78,8 @@
         }
         else
             document.getElementById("prevPicBtn").style.visibility= "hidden";
+            
+        currentId = info.id;
     }
   </script>
     
