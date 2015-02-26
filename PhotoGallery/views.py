@@ -1,6 +1,8 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
+from django.utils.html import escape
+from django.db.models import Q
 from PhotoGallery.models import Album, Photo
 
 import json
@@ -23,11 +25,15 @@ def albumDetail(request, albumid):
     except Album.DoesNotExist:
         raise Http404
     
-    ordering = sortparse(request)
+    rawval = request.GET.get('ordering')
+    ordering = sortparse(rawval)
      
-    imgList = album.photo_set.order_by(ordering[2], 'pk') #do not pass this to template, its not iterable!
+    imgList = album.photo_set.order_by(ordering[2], 'pk')
         
     context = {'album': album, 'imgList': imgList}
+    if (ordering[0] != "pk"):
+        context["ordering"] = ordering[3]
+        
 
     return render(request, 'PhotoGallery/album.thtm', context)
 
@@ -38,19 +44,12 @@ def imageDetail(request, imgid):
     except Photo.DoesNotExist:
         raise Http404
     
-    # get next element
-    q = img.album.photo_set.filter(id__gt=imgid).order_by('id')[:1]
-    if (q):
-        next = q[0]
-    else:
-        next = False
+    rawval = request.GET.get('ordering')
+    ordering = sortparse(rawval)
+
+    (prev, next) = nextPrevImg(request, img, ordering)
     
-    # get previous element
-    q = img.album.photo_set.filter(id__lt=imgid).order_by('id').reverse()[:1]
-    if (q):
-        prev = q[0]
-    else:
-        prev = False
+    thumbs = img.album.photo_set.order_by(ordering[2])
 
     try:
         dia = request.GET["dia"]
@@ -60,7 +59,9 @@ def imageDetail(request, imgid):
     except (ValueError, KeyError):
         dur = False
     
-    context = {'img':img, 'next':next, 'prev':prev, 'diaDuration': dur}
+    context = {'img':img, 'next':next, 'prev':prev, 'diaDuration': dur, 'thumbs' : thumbs}
+    if (ordering[0] != "pk"):
+        context["ordering"] = ordering[3]
     return render(request, 'PhotoGallery/carousel.thtm', context)
 
 
@@ -73,17 +74,10 @@ def imageJsonInfo (request, imgid):
     except Photo.DoesNotExist:
         raise Http404
         
-    q = img.album.photo_set.filter(id__gt=imgid).order_by('id')[:1]
-    if (q):
-        next = q[0]
-    else:
-        next = False
+    rawval = request.GET.get('ordering')
+    ordering = sortparse(rawval)
     
-    q = img.album.photo_set.filter(id__lt=imgid).order_by('-id')[:1]
-    if (q):
-        prev = q[0]
-    else:
-        prev = False
+    (prev, next) = nextPrevImg(request, img, ordering)
 
     try:
         dia = request.GET["dia"]
@@ -95,16 +89,17 @@ def imageJsonInfo (request, imgid):
     
     jsonInfo = {}
     jsonInfo['id'] = img.id
-    jsonInfo['name'] = img.name
-    jsonInfo['description'] = img.description
+    jsonInfo['name'] = escape(img.name)
+    jsonInfo['description'] = escape(img.description)
     jsonInfo['currImgUrl'] = img.imgOrig.url
-    jsonInfo['currSiteUrl'] = reverse('imageDetail', kwargs = {'imgid': img.id} )
+
+    jsonInfo['currSiteUrl'] = reverse('imageDetail', kwargs = {'imgid': img.id} ) + ("?ordering=%s" % ordering[3] if ordering[0] != "pk" else "")
     if (next):
-        jsonInfo['nextInfoUrl'] = reverse('imageJsonInfo', kwargs = {'imgid': next.id} )
+        jsonInfo['nextInfoUrl'] = "%s?ordering=%s" % (reverse('imageJsonInfo', kwargs = {'imgid': next.id} ), ordering[3])
     else:
         jsonInfo['nextInfoUrl'] = False
     if (prev):
-        jsonInfo['prevInfoUrl'] = reverse('imageJsonInfo', kwargs = {'imgid': prev.id} )
+        jsonInfo['prevInfoUrl'] = "%s?ordering=%s" % (reverse('imageJsonInfo', kwargs = {'imgid': prev.id} ), ordering[3])
     else:
         jsonInfo['prevInfoUrl'] = False
     
@@ -113,13 +108,41 @@ def imageJsonInfo (request, imgid):
 
 ####### HELPER FUNCTONS #######
 
+# get next and previous image object of an given image
+def nextPrevImg(request, img, ordering):
+    ## get next element
+    #get elements with order values higher (or lower) than current
+    nextNameExp = { ordering[0] + ("__gt" if (ordering[1] == ASCENDING) else "__lt") : getattr(img, ordering[0]) }
+    nextNameQ = Q(**nextNameExp)
+    # get values with same ordering key, but higher PK
+    sameNameNextPkExpr = { ordering[0] : getattr(img, ordering[0]), "pk__gt" : img.pk }
+    sameNameNextPkQ = Q(**sameNameNextPkExpr)
+    q = img.album.photo_set.filter(nextNameQ | sameNameNextPkQ).order_by(ordering[2], "pk")[:1]
+    if (q):
+        next = q[0]
+    else:
+        next = False
+    
+    ## get previous element
+    #get elements with order values lower (or higher) than current
+    prevNameExpr = { ordering[0] + ("__lt" if (ordering[1] == ASCENDING) else "__gt") : getattr(img, ordering[0]) }
+    prevNameQ = Q(**prevNameExpr)
+    # get values with same ordering key, but lower PK
+    sameNamePrevPkExpr = { ordering[0] : getattr(img, ordering[0]), "pk__lt": img.pk }
+    sameNamePrevPkQ = Q(**sameNamePrevPkExpr)
+    q = img.album.photo_set.filter(prevNameQ | sameNamePrevPkQ).order_by(ordering[2], "pk").reverse()[:1]
+    if (q):
+        prev = q[0]
+    else:
+        prev = False
+    return (prev, next)
+
 # return a tupel defining the ordering.
 # always returns a tupel, never false -> no eror checking needed
-def sortparse(request):
-    rawval = request.GET.get('ordering')
+def sortparse(rawval):
     return {
-        'oldest':('added', DESCENDING, '-added'),
-        'newest':('added', ASCENDING, 'added'),
-        'name':('name', DESCENDING, 'name'),
-        'namereverse':('name',ASCENDING, '-name'),
-        }.get(rawval, ('pk', ASCENDING, 'pk'))      # default: order by primary key (pk)
+        'oldest':('added', DESCENDING, '-added', "oldest"),
+        'newest':('added', ASCENDING, 'added', "newest"),
+        'name':('name', ASCENDING, 'name', "name"),
+        'namereverse':('name',DESCENDING, '-name', "namereverse"),
+        }.get(rawval, ('pk', ASCENDING, 'pk', "pk"))      # default: order by primary key (pk)

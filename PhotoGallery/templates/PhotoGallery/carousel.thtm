@@ -26,13 +26,13 @@
   
     var nextInfo =
         {% if next %}
-            "{% url 'imageJsonInfo' next.id %}";
+            "{% url 'imageJsonInfo' next.id %}{% if ordering %}?ordering={{ordering}}{% endif %}";
         {% else %}
             false;
         {% endif %}
     var prevInfo =
         {% if prev %}
-            "{% url 'imageJsonInfo' prev.id %}";
+            "{% url 'imageJsonInfo' prev.id %}{% if ordering %}?ordering={{ordering}}{% endif %}";
         {% else %}
             false;
         {% endif %}
@@ -135,7 +135,7 @@
 </div>	
 
 <div class="picker" id="picker">
-	{% for thumb in img.album.photo_set.all %}
+	{% for thumb in thumbs %}
 		<a href="{% url 'imageDetail' thumb.id %}" class="inactive" id="thumb{{thumb.id}}">
 			<img src="{{thumb.imgThumb.url}}"></img>
 		</a>
