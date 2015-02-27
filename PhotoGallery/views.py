@@ -2,7 +2,7 @@ from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from django.utils.html import escape
-from django.db.models import Q
+from django.db.models import Q, Max
 from PhotoGallery.models import Album, Photo
 
 import json
@@ -14,7 +14,7 @@ DESCENDING = True;
 
 # Home view (start page) -> list all albums
 def overview(request):
-    albumList = Album.objects.order_by('name')
+    albumList = Album.objects.order_by('name').annotate(lastPhotoUpload=Max("photo__added"))
     context = {'albumList': albumList}
     return render(request, 'PhotoGallery/gallery.thtm', context)
 
