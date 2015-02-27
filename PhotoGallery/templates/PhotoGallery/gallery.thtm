@@ -68,14 +68,10 @@
 		<a href="{% url 'albumDetail' album.id %}">
 			<div id="panel1" class="panel">
 				<div class="panel-body">
-					<div class="leftColumn">
-						<div class="preview upperLeft">a</div>
-						<div class="preview upperRight">b</div>
-					</div>
-					<div class="rightColumn">
-						<div class="preview lowerLeft">c</div>
-						<div class="preview lowerRight">d</div>
-					</div>
+					<div class="preview"></div>
+					<div class="preview"></div>
+					<div class="preview"></div>
+					<div class="preview"></div>
 				</div>
 				<div class="panel-heading">
 					<span class="panel-heading-text">
