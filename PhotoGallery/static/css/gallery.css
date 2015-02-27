@@ -38,33 +38,14 @@
 .panel-body {
 	margin: 0px 0px 0px 10px;
 	height: 140px;
-	position: relative
+	position: relative;
 }
 
 .preview {
 	height: 65px;
 	width: 65px;
 	margin: 2px 2px 0px 0px;
-}
-
-.leftColumn, .rightColumn {
 	float: left;
-}
-
-.upperLeft {
-	background-color: yellow;
-}
-
-.upperRight {
-	background-color: red;
-}
-
-.lowerLeft {
-	background-color: blue;
-}
-
-.lowerRight {
-	background-color: green;
 }
 
 #orderByContainer, #searchContainer, .home-img-container {
