@@ -68,10 +68,11 @@
 		<a href="{% url 'albumDetail' album.id %}">
 			<div id="panel1" class="panel">
 				<div class="panel-body">
-					<div class="preview"></div>
-					<div class="preview"></div>
-					<div class="preview"></div>
-					<div class="preview"></div>
+                                        {% for thumb in album.photo_set.all|dictsortreversed:"added"|slice:":4" %}
+					<div class="preview">
+                                            <img src={{thumb.imgThumb.url}}/>
+					</div>
+					{% endfor %}
 				</div>
 				<div class="panel-heading">
 					<span class="panel-heading-text">
