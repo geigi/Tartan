@@ -80,7 +80,7 @@
 					</span>
 					<br />
 					<span class="panel-heading-uploaded">
-						Uploaded: 12.08.2014
+						Uploaded: {{album.lastPhotoUpload}}
 					</span>
 				</div>
 			</div>
