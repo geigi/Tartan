@@ -2,12 +2,15 @@ var curPic = 0;
 var dia = 0;
 var timer;
 var time = 2500;
+var pDic;
+var inversepDic
 
 $(window).resize(function(){
     resizeImg();
 });
 
 function init() {
+  createPickerArray();
   document.onkeydown = checkKey;
   initDiashow();
   initPicker();
@@ -50,7 +53,9 @@ function prev() {
   ChangeImage(false);
 
   setPickerPosition(currentId);
-  activePicker(false, currentId + 1);
+  var pos = pDic[currentId];
+  var oldPic = getKeyFromDic(pDic, pos + 1);
+  activePicker(false,  oldPic);
 
   refreshPicker();
 }
@@ -59,7 +64,9 @@ function next() {
   ChangeImage(true);
 
   setPickerPosition(currentId);
-  activePicker(false, currentId - 1);
+  var pos = pDic[currentId];
+  var oldPic = getKeyFromDic(pDic, pos - 1);
+  activePicker(false, oldPic);
 
   refreshPicker();
 }
@@ -191,7 +198,7 @@ function setPickerPosition(pic_name) {
 
   var pane = $('.picker');
   var api = pane.data('jsp');
-  api.scrollToY((parseInt(pic_name) - 2) * 50);
+  api.scrollToY((pDic[pic_name] - 2) * 50);
 
   activePicker(true, pic_name);
 }
@@ -204,4 +211,23 @@ function activePicker(active, pic_id) {
   else {
     picker_prev.className = "inactive";
   }
+}
+
+function createPickerArray() {
+  pDic = {};
+  var thumbs = document.getElementById("picker").children;
+
+  for (i = 0; i < thumbs.length; i++) {
+    pDic[thumbs[i].id.substring(5)] = i;
+  }
+}
+
+function getKeyFromDic(dic, val) {
+  for (var key in dic) {
+    if (dic[key] == val) {
+      return key;
+    }
+  }
+
+  return null;
 }
