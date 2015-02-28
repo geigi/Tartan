@@ -36,6 +36,8 @@
 					<option value="namereverse">z-a</option>
 					<option value="newest">oldest first</option>
 					<option value="oldest">newest first</option>
+					<option value="newestphotofirst">newest last photo</option>
+					<option value="newestphotolast" >oldest last photo</option>
 				</select>
 				<input type="submit" value="Filter"/>
 			</form>

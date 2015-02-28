@@ -14,7 +14,20 @@ DESCENDING = True;
 
 # Home view (start page) -> list all albums
 def overview(request):
-    albumList = Album.objects.order_by('name').annotate(lastPhotoUpload=Max("photo__added"))
+    def sortparseAlbum(rawval):
+        return {
+            'name':('name',ASCENDING,'name',"name"),
+            'namereverse':('name',DESCENDING, '-name', "namereverse"),
+            'newestphotofirst': ('lastPhotoUpload',DESCENDING, '-lastPhotoUpload', "newestphotofirst"),
+            'newestphotolast':  ('lastPhotoUpload',ASCENDING,  'lastPhotoUpload',  "newestphotolast"),
+            'oldest':('created', DESCENDING, '-created', "oldest"),
+            'newest':('created', ASCENDING, 'created', "newest"),
+            }.get(rawval, ('pk', ASCENDING, 'pk', "pk"))      # default: order by primary key (pk)
+    
+    rawval = request.GET.get('ordering')
+    ordering = sortparseAlbum(rawval)
+    
+    albumList = Album.objects.annotate(lastPhotoUpload=Max("photo__added")).order_by(ordering[2], "pk")
     context = {'albumList': albumList}
     return render(request, 'PhotoGallery/gallery.thtm', context)
 
