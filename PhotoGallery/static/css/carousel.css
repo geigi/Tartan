@@ -142,8 +142,18 @@ img {
 
 .inactive {
 	opacity: 0.5;
+	-webkit-filter: grayscale(70%); 
+	-moz-filter: grayscale(70%); 
+	-o-filter: grayscale(70%); 
+	-ms-filter: grayscale(70%); 
+	filter: grayscale(70%);
 }
 
 .inactive:hover {
 	opacity: 0.9;
+	-webkit-filter: grayscale(10%); 
+	-moz-filter: grayscale(10%); 
+	-o-filter: grayscale(10%); 
+	-ms-filter: grayscale(10%); 
+	filter: grayscale(10%);
 }
