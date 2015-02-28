@@ -1,10 +1,14 @@
 from django.db import models
 from django.utils import timezone
+from django.db.models import Min
 import datetime
 
 # Create your models here.
 class Album(models.Model):
     name = models.CharField(max_length = 200)
+    
+    created = models.DateTimeField(auto_now_add=True, default=datetime.datetime(2000,1,1))
+    
     def __str__(self):
         return self.name
 

@@ -1,4 +1,4 @@
-media/
+/media/*
 *.sqlite3
 *.aux
 *.glo
@@ -25,9 +25,11 @@ media/
 *.synctex.gz
 *.fls
 *.lol
-*.pyc
 *.fdb_latexmk
-docu/docu.fdb_latexmk
-docu/dokumentation.pdf
-docu/docu.sublime-workspace
-docu/docu.pdf
+*.pyc
+/docu/docu.fdb_latexmk
+/docu/dokumentation.pdf
+/docu/docu.sublime-workspace
+/docu/docu.pdf
+migrations/
+__pycache__/*
