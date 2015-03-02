@@ -48,15 +48,9 @@
 			<p class="search-wrapper"><input type="text" class="search" placeholder="search"/></p>
 		</form>
 	</div>
-	<!--span id="userName">
-		USERNAME
-	</span-->
 </div>
 
 <div class="bottom-div">
-	<!--span id="logout">
-		Logout
-	</span-->
 	<span id="setup">
 		<a href="404.html">
 			<i class="fa fa-wrench"></i>
