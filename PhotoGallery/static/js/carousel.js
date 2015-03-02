@@ -237,6 +237,11 @@ function initDropdown() {
   ordering = getGet('ordering');
   dropdown = document.getElementById("ordering");
 
+  if (ordering === undefined) {
+    dropdown.options[2].selected = true;
+    return;
+  }
+
   switch(ordering) {
     case 'name':
       dropdown.options[0].selected = true;
