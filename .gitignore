@@ -33,3 +33,7 @@
 /docu/docu.pdf
 migrations/
 __pycache__/*
+
+docu/docu.bcf
+
+docu/docu.run.xml
