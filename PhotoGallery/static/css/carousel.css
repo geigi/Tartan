@@ -1,4 +1,4 @@
-.order-by-container, .back-img-container {
+.orderByContainer, .back-img-container {
 	float: left;
 	position: relative;
   top: 50%;
@@ -137,7 +137,7 @@ img {
 .title {
 	position: relative;
 	font-size: 200%;
-	left: 43.5%;
+	left: 30%;
 }
 
 .inactive {

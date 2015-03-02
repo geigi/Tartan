@@ -21,6 +21,8 @@
     <script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.jscrollpane.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
 
+    <link rel="stylesheet" href="/static/lib/dropdown/css/style.css" />
+
   <script type="text/javascript">
   // Hier komplette URL zum nächsten Bild einfügen (für Diashow und Tastaturkürzel)
   
@@ -95,20 +97,29 @@
 			<i class="fa fa-arrow-circle-left fa-2x"></i>
 		</a>
 	</div>
+    <div class="orderByContainer">
+        <div class="info-container">
+            <span class="info-text">
+                Order by:
+            </span>
+        </div>
+        <div class="dropdown dropdown-dark">
+            <form action="" method="get">
+                <select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
+                    <option value="name">a-z</option>
+                    <option value="namereverse">z-a</option>
+                    <option value="newest">oldest first</option>
+                    <option value="oldest">newest first</option>
+                </select>
+                <input type="submit" value="Filter"/>
+            </form>
+        </div>
+    </div>
     <div class="title_container">
         <span id="name" class="title">
         {{img.name}}
         </span>
     </div>
-	<!-- <div class="order-by-container">
-		<span class="info-text">
-			Order by:
-		</span>
-		<select>
-			<option>Capture Date</option>
-			<option>Upload Date</option>
-		</select>
-	</div> -->
 </div>
 
 <div class="canvas">
@@ -136,7 +147,7 @@
 
 <div class="picker" id="picker">
 	{% for thumb in thumbs %}
-		<a href="{% url 'imageDetail' thumb.id %}" class="inactive" id="thumb{{thumb.id}}">
+		<a href="{% url 'imageDetail' thumb.id %}{% if ordering %}?ordering={{ordering}}{%endif%}" class="inactive" id="thumb{{thumb.id}}">
 			<img src="{{thumb.imgThumb.url}}"></img>
 		</a>
 	{% endfor %}
