@@ -105,7 +105,7 @@
         </div>
         <div class="dropdown dropdown-dark">
             <form action="" method="get">
-                <select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
+                <select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering" selected="newest">
                     <option value="name">a-z</option>
                     <option value="namereverse">z-a</option>
                     <option value="newest">oldest first</option>

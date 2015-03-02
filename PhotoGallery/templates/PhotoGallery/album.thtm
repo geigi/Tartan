@@ -31,7 +31,7 @@
 		</div>
 		<div class="dropdown dropdown-dark">
 			<form action="" method="get">
-				<select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
+				<select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering" selected="newest">
 					<option value="name">a-z</option>
 					<option value="namereverse">z-a</option>
 					<option value="newest">oldest first</option>
@@ -41,22 +41,7 @@
 			</form>
 		</div>
 	</div>
-	<!--div id="searchContainer">
-		<input placeholder="search" size="40"/>
-	</div-->
-	<!--span id="userName">
-		USERNAME
-	</span-->
 </div>
-
-<!--div class="right-div">
-	<span id="logout">
-		Logout
-	</span-->
-	<!--span id="setup">
-		Admin only
-	</span>
-</div-->
 
 <div class="container" id="main-container">
     
