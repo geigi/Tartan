@@ -12,10 +12,18 @@
   \includegraphics[width=0.7\textwidth]{images/python-logo.pdf}
   \caption{Python Logo}
 \end{figure}
-	Python ist eine interpretierte, [...] objektorientierte Programmiersprache.\footnote{\citet{pythonFaq}}
-\subsection{Pillow}
-	Pillow ist ein Fork der Python Image Library (PIL).
+\enquote{Python ist eine interpretierte, [...] objektorientierte Programmiersprache.}\footnote{\citet{pythonFaq}}
 
-	Pillow ermöglicht die einfache Verarbeitung von Bildern in Python. Es kann alle gebräuchlichen und viele exotischere Bildformate lesen und schreiben. Es bietet viele Möglichkeiten zur Bearbeitung von Bildern, beispielsweise Größenänderung, Helligkeits- und Kontrastanpassung und Formatkonvertierungen.
+Mit Python können je nach Anwendungsfall verschiedene Programmierparadigmen verfolgt werden. Beispielsweise kann prozedural, objektorientiert oder funktional programiert werden.\footnote{\citet{pythonFuncProg}}
+Daher eignet es sich hervorragend als Programmiersprache zur Webentwicklung, z.B. funktional für Datenbankzugriffe und prozedural zur Bearbeitung von Webanfragen.
 
-	Da die aktuellste verfügbare Version von PIL bei der Erstellung dieses Projektes bereits über 5 Jahre alt ist wird hier dessen zurzeit aktiv weiterentwickelter Fork Pillow verwendet.
+Aufgrund der großen Beliebtheit von Python steht für diese Sprache eine große Menge an Bibliotheken für alle möglichen Aufgaben zur Verfügung.
+
+
+\subsection{PIL / Pillow}
+PIL, die Python Image Library, ist eine Python-Bibliothek zur Verarbeitung von Bildern.
+Pillow ist ein Fork der Python Image Library (PIL)\footnote{\citet{pillowdoc}}.
+
+Da die aktuellste verfügbare Version der originalen Python Image Library (Version 1.1.7 vom 15. November 2009) zum Zeitpunkt der Erstellung dieses Projektes bereits über 5 Jahre alt ist\footnote{siehe \url{http://www.pythonware.com/products/pil/}}, wird hier Pillow verwendet
+
+Pillow kann alle gebräuchlichen und viele exotische Bildformate lesen und schreiben\footnote{vgl. \citet{pillowdoc}}. Es bietet viele Möglichkeiten zur Bearbeitung von Bildern, beispielsweise Größenänderung, Helligkeits- und Kontrastanpassung und Formatkonvertierungen.
