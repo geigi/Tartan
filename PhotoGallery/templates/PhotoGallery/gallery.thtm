@@ -52,7 +52,7 @@
 
 <div class="bottom-div">
 	<span id="setup">
-		<a href="404.html">
+		<a href="{% url 'admin:index' %}">
 			<i class="fa fa-wrench"></i>
 		</a>
 	</span>
