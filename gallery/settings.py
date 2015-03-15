@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'PhotoGallery',
+    'constance',
+    'constance.backends.database',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,3 +88,15 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL='/media/'
+
+
+# CONSTACE config
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+
+CONSTANCE_CONFIG = {
+    'Tartan Diashow Duration': (5, 'How long an image is shown in diashow mode (in seconds)'),
+    'Tartan Text Color': ('white', 'Text Color as CSS Color'),
+    'Tartan Background Color': ('black', 'Background Color as CSS Color'),
+    'Tartan Photo Size': (1280, 'Maximum Height and Width of a Photo in Carousel View'),
+    'Tartan Compression': (True, 'How long an image is shown in diashow mode (in seconds)'),
+}
