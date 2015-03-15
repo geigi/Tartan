@@ -91,10 +91,6 @@
 	{% endif %}
 </div>
 
-<div style="height: 2000px;">
-	
-</div>
-
 <script type="text/javascript">
 	init();
 </script>
