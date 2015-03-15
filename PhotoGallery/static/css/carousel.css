@@ -157,3 +157,8 @@ img {
 	-ms-filter: grayscale(10%); 
 	filter: grayscale(10%);
 }
+
+.fa-download {
+	float: right;
+	margin-top: 10px;
+}
