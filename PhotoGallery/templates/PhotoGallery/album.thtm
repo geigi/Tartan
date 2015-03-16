@@ -41,6 +41,11 @@
 			</form>
 		</div>
 	</div>
+	<div class="title_container">
+    <span id="name" class="title">
+		{{ album.name }}
+		</span>
+  </div>
 </div>
 
 <div class="container" id="main-container">

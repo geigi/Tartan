@@ -129,17 +129,6 @@ img {
 	height: 74%;
 }
 
-.title_container {
-	position: relative;
-	z-index: -5;
-}
-
-.title {
-	position: relative;
-	font-size: 200%;
-	left: 30%;
-}
-
 .inactive {
 	opacity: 0.5;
 	-webkit-filter: grayscale(70%); 
