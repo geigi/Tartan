@@ -154,27 +154,9 @@
 </div>
 
 <div class="bottom-div">
-    <i class="fa fa-fw fa-download fa-lg"></i>
 	<div class="player">
-		<a 
-          id="prevPicBtn"
-          href = "{% if prev %}{% url 'imageDetail' prev.id %}{% endif %}"
-          onclick="prev(); return false;"
-          style = "visibility: {% if prev %}visible{% else %}hidden{% endif %}">
-            <i class="fa fa-fw fa-backward fa-lg"></i>
-        </a>
-        
-        
 		<i id="play" class="fa fa-fw fa-play fa-lg" onclick="diashow()"></i>
-        
-		<a 
-          id="nextPicBtn"
-          href = "{% if next %}{% url 'imageDetail' next.id %}{% endif %}"
-          onclick="next(); return false;"
-          style = "visibility: {% if next %}visible{% else %}hidden{% endif %}">
-            <i class="fa fa-fw fa-forward fa-lg"></i>
-        </a>
-		<!-- <i class="fa fa-fw fa-step-forward"></i> -->
+        <i class="fa fa-fw fa-download fa-lg"></i>
 	</div>
 	<div class="description">
     	<span id = "description">
