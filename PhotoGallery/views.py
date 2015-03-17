@@ -104,7 +104,8 @@ def imageJsonInfo (request, imgid):
     jsonInfo['id'] = img.id
     jsonInfo['name'] = escape(img.name)
     jsonInfo['description'] = escape(img.description)
-    jsonInfo['currImgUrl'] = img.imgOrig.url
+    jsonInfo['currImgUrl'] = img.imgCarousel.url
+    jsonInfo['fullsizeImgUrl'] = img.imgOrig.url
 
     jsonInfo['currSiteUrl'] = reverse('imageDetail', kwargs = {'imgid': img.id} ) + ("?ordering=%s" % ordering[3] if ordering[0] != "pk" else "")
     if (next):
