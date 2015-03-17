@@ -64,6 +64,7 @@
         document.getElementById("fullPic").src = info.currImgUrl;
         document.getElementById("name").innerHTML = info.name;
         document.getElementById("description").innerHTML = info.description;
+        document.getElementById("dlButton").href = info.fullsizeImgUrl;
         
         window.history.pushState("object or string", "Title", info.currSiteUrl);
         if (info.nextInfoUrl)
@@ -129,7 +130,7 @@
     			<i class="fa fa-refresh fa-spin fa-4x"></i>
     		</div>
     		<div class="panel-body panel-body-preview">
-    			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgOrig.url}}"/>
+    			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgCarousel.url}}"/>
     	    </div>
     	</div>
     </div>
@@ -154,9 +155,9 @@
 </div>
 
 <div class="bottom-div">
-    <i class="fa fa-fw fa-download fa-lg"></i>
-	<div class="player">
-		<a 
+    <a id="dlButton" href="{{img.imgOrig.url}}" class="fa fa-fw fa-download fa-lg" target="imgDlPage"></a>
+    <div class="player">
+        <a 
           id="prevPicBtn"
           href = "{% if prev %}{% url 'imageDetail' prev.id %}{% endif %}"
           onclick="prev(); return false;"
@@ -165,9 +166,9 @@
         </a>
         
         
-		<i id="play" class="fa fa-fw fa-play fa-lg" onclick="diashow()"></i>
+        <i id="play" class="fa fa-fw fa-play fa-lg" onclick="diashow()"></i>
         
-		<a 
+	<a 
           id="nextPicBtn"
           href = "{% if next %}{% url 'imageDetail' next.id %}{% endif %}"
           onclick="next(); return false;"
@@ -175,16 +176,16 @@
             <i class="fa fa-fw fa-forward fa-lg"></i>
         </a>
 		<!-- <i class="fa fa-fw fa-step-forward"></i> -->
-	</div>
-	<div class="description">
-    	<span id = "description">
-    		{{img.description}}
-    	</span>
+    </div>
+    <div class="description">
+        <span id = "description">
+            {{img.description}}
+        </span>
         <br />
         <span>
             Uploaded: {{img.added}}
         </span>
-	</div>
+    </div>
 </div>
 <script type="text/javascript">
     init();
