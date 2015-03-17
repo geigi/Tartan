@@ -16,9 +16,9 @@ class Photo(models.Model):
     # constants
     
     # Compressed Image Resolutions
-    THUMBSIZE = (50,50)
+    THUMBSIZE = (65,65)
     PREVIEWSIZE = (300,200)
-    CAROUSELSIZE = (2000,1500)
+    CAROUSELSIZE = (2000,1200)
     
     name = models.CharField(max_length = 200, null = True, blank = True)    
     description = models.TextField(blank = True)
