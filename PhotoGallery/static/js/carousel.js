@@ -19,11 +19,12 @@ function init() {
 
 function resizeImg() {
   var height = parseInt($(window).height()) - 150;
+  var width = parseInt($(window).width()) - 120;
 
   $('.fullPic').css({
-    'max-width': $(window).width(),
+    'max-width': width,
     'max-height': height,
-  });
+  }); 
 
   $('.container').css({
     'width': $('.fullPic').width(),
@@ -199,7 +200,7 @@ function setPickerPosition(pic_name) {
 
   var pane = $('.picker');
   var api = pane.data('jsp');
-  api.scrollToY((pDic[pic_name] - 2) * 50);
+  api.scrollToY((pDic[pic_name] - 2) * 65);
 
   activePicker(true, pic_name);
 }

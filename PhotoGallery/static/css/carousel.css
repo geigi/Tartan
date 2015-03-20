@@ -84,7 +84,7 @@ img {
 #nav-right {
 	width: 40px;
 	float: right;
-	margin-right: 40px;
+	margin-right: 10px;
 }
 
 .panel-body {
@@ -102,7 +102,6 @@ img {
 	position: absolute;
 	top: 45%;
 	right: 0px;
-	margin-right: 2px;
 	color: rgba(255, 255, 255, 0.4);
 
 }
@@ -115,13 +114,15 @@ img {
 	position: absolute;
 	top: 50px;
 	right: 0px;
-	width: 70px;
+	width: 85px;
 	bottom: 100px;
 	overflow: auto;
 }
 
 .canvas {
 	position: relative;
+	height: 100%;
+	margin-right: 50px;
 }
 
 .description {
