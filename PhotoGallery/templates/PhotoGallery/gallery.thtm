@@ -79,7 +79,7 @@
 						Uploaded: {{album.lastPhotoUpload}}
 					</span>
 					<br />
-					<span>
+					<span class="panel-heading-uploaded">
                                                 Created: {{album.created}}
 					</span>
 				</div>
