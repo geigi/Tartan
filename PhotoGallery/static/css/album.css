@@ -67,3 +67,10 @@
   bottom: 0;
   float: left;
 }
+
+.title {
+	-webkit-transform: translateX(-125px);
+  -o-transform: translateX(-125px);
+  transform: translateX(-125px);
+  display: inline-block;
+}

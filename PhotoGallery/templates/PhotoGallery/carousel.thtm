@@ -108,11 +108,9 @@
             </form>
         </div>
     </div>
-    <div class="title_container">
-        <span id="name" class="title">
-        {{img.name}}
-        </span>
-    </div>
+    <span id="name" class="title">
+    {{img.name}}
+    </span>
 </div>
 
 <div class="canvas">
