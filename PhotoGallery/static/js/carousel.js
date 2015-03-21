@@ -75,13 +75,8 @@ function next() {
 
 function imgLoaded() {
   img = document.getElementById("fullPic");
-  if (img.height > 0)
-  {
+  if (img.height > 0) {
     resizeImg();
-    loader = document.getElementById("loader");
-
-    loader.style.display = "none";
-    $(".fullPic").fadeIn();
   }
 }
 
