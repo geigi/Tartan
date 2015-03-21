@@ -11,6 +11,7 @@ $(window).resize(function(){
 
 function init() {
   initDropdown();
+  initOverlay();
   createPickerArray();
   document.onkeydown = checkKey;
   initDiashow();
@@ -252,4 +253,9 @@ function initDropdown() {
       dropdown.options[3].selected = true;
       break;
   }
+}
+
+function initOverlay() {
+  hide("nav-left");
+  hide("nav-right");
 }
