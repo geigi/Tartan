@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from django.db.models import Min
+
+from django.dispatch import receiver
+from django.db.models.signals import post_delete
+
 import datetime
 
 # Create your models here.
@@ -32,7 +36,8 @@ class Photo(models.Model):
     album = models.ForeignKey(Album)
     
     added = models.DateTimeField(auto_now_add=True, default = timezone.now())
-        
+    
+    # override SAVE to create thumbs and preview image files
     def save(self):
         from PIL import Image, ImageOps
         from io import BytesIO
@@ -118,5 +123,13 @@ class Photo(models.Model):
         
     def admin_image(self):
         return '<img src="%s"/>' % self.imgPreview.url
+    
     admin_image.short_description = 'Preview'
     admin_image.allow_tags = True
+    
+    
+@receiver(post_delete, sender=Photo)
+def delete_photofile(sender, instance, **kwargs):
+    imgs = { instance.imgOrig, instance.imgPreview, instance.imgThumb, instance.imgCarousel }
+    for img in imgs:
+        img.delete(False)
