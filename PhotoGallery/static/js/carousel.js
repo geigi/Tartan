@@ -11,6 +11,7 @@ $(window).resize(function(){
 
 function init() {
   initDropdown();
+  initOverlay();
   createPickerArray();
   document.onkeydown = checkKey;
   initDiashow();
@@ -75,13 +76,8 @@ function next() {
 
 function imgLoaded() {
   img = document.getElementById("fullPic");
-  if (img.height > 0)
-  {
+  if (img.height > 0) {
     resizeImg();
-    loader = document.getElementById("loader");
-
-    loader.style.display = "none";
-    $(".fullPic").fadeIn();
   }
 }
 
@@ -257,4 +253,9 @@ function initDropdown() {
       dropdown.options[3].selected = true;
       break;
   }
+}
+
+function initOverlay() {
+  hide("nav-left");
+  hide("nav-right");
 }

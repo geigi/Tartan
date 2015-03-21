@@ -108,34 +108,42 @@
             </form>
         </div>
     </div>
-    <div class="title_container">
-        <span id="name" class="title">
-        {{img.name}}
-        </span>
-    </div>
+    <span id="name" class="title">
+    {{img.name}}
+    </span>
 </div>
 
 <div class="canvas">
     <div class="container" id="container">
     	<div id="panel1" class="panel pic">
-    		<div id="loader" style="display:none">
-    			<i class="fa fa-refresh fa-spin fa-4x"></i>
-    		</div>
     		<div class="panel-body panel-body-preview">
     			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgCarousel.url}}"/>
     	    </div>
     	</div>
     </div>
-    <div class="navigator nav-left" onclick="prev();" onmouseover="show('nav-left')" onmouseout="hide('nav-left')">
-        <div class="grey" id="nav-left">
-            <i class="fa fa-backward overlay-left fa-2x"></i>
+
+    <a    id="prevPicBtn"
+          href = "{% if prev %}{% url 'imageDetail' prev.id %}{% endif %}"
+          onclick="prev(); return false;"
+          style = "visibility: {% if prev %}visible{% else %}hidden{% endif %}">
+        <div class="navigator nav-left" onmouseover="show('nav-left')" onmouseout="hide('nav-left')">
+            <div class="grey" id="nav-left">
+                <i class="fa fa-backward overlay-left fa-2x"></i>
+            </div>
         </div>
-    </div>
-    <div class="navigator nav-right" onclick="next();" onmouseover="show('nav-right')" onmouseout="hide('nav-right')">
+    </a>
+
+<a 
+          id="nextPicBtn"
+          href = "{% if next %}{% url 'imageDetail' next.id %}{% endif %}"
+          onclick="next(); return false;"
+          style = "visibility: {% if next %}visible{% else %}hidden{% endif %}">
+    <div class="navigator nav-right" onmouseover="show('nav-right')" onmouseout="hide('nav-right')">
         <div class="grey" id="nav-right">
             <i class="fa fa-forward overlay-right fa-2x"></i>
         </div>
     </div>
+    </a>
 </div>	
 
 <div class="picker" id="picker">

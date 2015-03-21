@@ -20,10 +20,6 @@ img {
 	max-width: 100%;
 }
 
-.fullPic {
-	display: none;
-}
-
 .fa {
 	color: #808080;
 }
@@ -57,12 +53,12 @@ img {
 	height: 100%;
 	top: 0;
 	cursor: pointer;
-	
+	visibility: visible;
 }
 
 .grey {
 	/* background-color: rgba(16, 16, 16, 0.8); */
-	visibility: hidden;
+	
 	height: 100%;
 	position: relative;
 }
