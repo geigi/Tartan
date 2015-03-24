@@ -1,5 +1,5 @@
 from django.contrib import admin
-from PhotoGallery.models import Photo, Album
+from Tartan.models import Photo, Album
 
 
 # Album Administration

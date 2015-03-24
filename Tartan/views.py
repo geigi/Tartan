@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from django.utils.html import escape
 from django.db.models import Q, Max
-from PhotoGallery.models import Album, Photo
+from Tartan.models import Album, Photo
 
 import json
 
@@ -29,7 +29,7 @@ def overview(request):
     
     albumList = Album.objects.annotate(lastPhotoUpload=Max("photo__added")).order_by(ordering[2], "pk")
     context = {'albumList': albumList}
-    return render(request, 'PhotoGallery/gallery.thtm', context)
+    return render(request, 'Tartan/gallery.thtm', context)
 
 # Album view -> list all images inside an album
 def albumDetail(request, albumid):
@@ -48,7 +48,7 @@ def albumDetail(request, albumid):
         context["ordering"] = ordering[3]
         
 
-    return render(request, 'PhotoGallery/album.thtm', context)
+    return render(request, 'Tartan/album.thtm', context)
 
 # Detail view -> show a single image in large size
 def imageDetail(request, imgid):
@@ -75,7 +75,7 @@ def imageDetail(request, imgid):
     context = {'img':img, 'next':next, 'prev':prev, 'diaDuration': dur, 'thumbs' : thumbs}
     if (ordering[0] != "pk"):
         context["ordering"] = ordering[3]
-    return render(request, 'PhotoGallery/carousel.thtm', context)
+    return render(request, 'Tartan/carousel.thtm', context)
 
 
 ####### API VIEWS #######

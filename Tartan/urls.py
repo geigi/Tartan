@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from PhotoGallery import views
+from Tartan import views
 
 urlpatterns = [
     url(r'^detailed/(?P<imgid>[0-9]+)/$', views.imageDetail, name='imageDetail'),
