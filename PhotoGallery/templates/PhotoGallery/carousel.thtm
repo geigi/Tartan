@@ -21,7 +21,7 @@
     <script type="text/javascript" src="{% static 'lib/scrollPane/script/jquery.jscrollpane.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
 
-    <link rel="stylesheet" href="/static/lib/dropdown/css/style.css" />
+    <link rel="stylesheet" href="{% static 'lib/dropdown/css/style.css' %}" />
 
   <script type="text/javascript">
   // Hier komplette URL zum nächsten Bild einfügen (für Diashow und Tastaturkürzel)
