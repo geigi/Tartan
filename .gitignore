@@ -31,6 +31,10 @@
 /docu/dokumentation.pdf
 /docu/docu.sublime-workspace
 /docu/docu.pdf
+
+/dist
+/django_tartan.egg-info
+
 migrations/
 __pycache__/*
 
