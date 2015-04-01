@@ -47,7 +47,7 @@
 	</div>
 	<div id="searchContainer" class="dark">
 		<form>
-			<p class="search-wrapper"><input type="text" class="search" placeholder="search"/></p>
+			<p class="search-wrapper"><input id="search" type="text" class="search" placeholder="search"/></p>
 		</form>
 	</div>
 </div>
