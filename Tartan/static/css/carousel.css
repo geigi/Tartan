@@ -13,6 +13,9 @@
 	margin-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
+	-webkit-transform: translateX(42px);
+ 	-o-transform: translateX(42px);
+ 	transform: translateX(42px);
 }
 
 img {
