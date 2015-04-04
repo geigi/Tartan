@@ -12,7 +12,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
-	<link rel="stylesheet" type="text/css" href="{% static "css/carousel.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/carousel.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/theme.css" %}" />
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 	<link type="text/css" href="{% static "lib/scrollPane/style/jquery.jscrollpane.css" %}" rel="stylesheet" media="all" />
 	<link type="text/css" href="{% static "lib/scrollPane/themes/lozenge/style/jquery.jscrollpane.lozenge.css" %}" rel="stylesheet" media="all" />
@@ -115,7 +116,7 @@
 
 <div class="canvas">
     <div class="container" id="container">
-    	<div id="panel1" class="panel pic">
+    	<div class="pic">
     		<div class="panel-body panel-body-preview">
     			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgCarousel.url}}"/>
     	    </div>

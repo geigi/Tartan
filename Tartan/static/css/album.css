@@ -16,22 +16,8 @@
   margin-left: 6px;
 }
 
-
 .panel {
-	display: inline-block;
-
-	width: 150px;
-
 	border-radius: 2px;
-	margin: 10px;
-
-	padding: 10px;
-
-	background-color: #303030;
-}
-
-.panel:hover {
-	background-color: #404040;
 }
 
 .panel-body {

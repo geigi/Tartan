@@ -23,10 +23,6 @@ img {
 	max-width: 100%;
 }
 
-.fa {
-	color: #808080;
-}
-
 .player {
 	margin-top: 8px;
 	margin-left: auto;
@@ -60,8 +56,6 @@ img {
 }
 
 .grey {
-	/* background-color: rgba(16, 16, 16, 0.8); */
-	
 	height: 100%;
 	position: relative;
 }
