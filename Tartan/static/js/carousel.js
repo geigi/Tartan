@@ -32,26 +32,6 @@ function resizeImg() {
   })
 }
 
-function getGet(index) {
-  var $_GET = {};
-  if(document.location.toString().indexOf('?') !== -1) {
-      var query = document.location
-                     .toString()
-                     // get the query string
-                     .replace(/^.*?\?/, '')
-                     // and remove any existing hash string (thanks, @vrijdenker)
-                     .replace(/#.*$/, '')
-                     .split('&');
-
-      for(var i=0, l=query.length; i<l; i++) {
-         var aux = decodeURIComponent(query[i]).split('=');
-         $_GET[aux[0]] = aux[1];
-      }
-  }
-  //get the 'index' query parameter
-  return $_GET[index];
-}
-
 function prev() {
   ChangeImage(false);
 
@@ -183,17 +163,6 @@ function refreshPicker() {
 }
 
 function setPickerPosition(pic_name) {
-  // var thumbs = document.getElementById("picker").childNodes;
-  // var position = 0;
-  // for (i=0; i<thumbs.length; i++) {
-  //   position++;
-  //   var img = thumbs[i].id;
-
-  //   if (img == pic_name) {
-  //     break;
-  //   }
-  // }
-
   var pane = $('.picker');
   var api = pane.data('jsp');
   api.scrollToY((pDic[pic_name] - 2) * 65);
@@ -228,31 +197,6 @@ function getKeyFromDic(dic, val) {
   }
 
   return null;
-}
-
-function initDropdown() {
-  ordering = getGet('ordering');
-  dropdown = document.getElementById("ordering");
-
-  if (ordering === undefined) {
-    dropdown.options[2].selected = true;
-    return;
-  }
-
-  switch(ordering) {
-    case 'name':
-      dropdown.options[0].selected = true;
-      break;
-    case 'namereverse':
-      dropdown.options[1].selected = true;
-      break;
-    case 'newest':
-      dropdown.options[2].selected = true;
-      break;
-    case 'oldest':
-      dropdown.options[3].selected = true;
-      break;
-  }
 }
 
 function initOverlay() {

@@ -1,29 +1,29 @@
 function init() {
 	initDropdown();
+	initSearch();
 }
 
-function displayAlbums() {
-	$(function() {
-		$(".panel").fadeToggle(0).fadeToggle(300);
-	}); 
+function initSearch() {
+	$("#search").bind("paste cut keydown",function(e) {
+        var that = this;
+        setTimeout(function() {
+                search($(that).val());
+            },100);
+    });
 }
 
-function initDropdown() {
-	ordering = getGet('ordering');
-	dropdown = document.getElementById("ordering");
+function search(search) {
+	var albums = document.getElementsByClassName("panel-heading-text");
+	
+	for (i = 0; i < albums.length; ++i) {
+		var title = albums[i].firstChild.data.toLowerCase();
+		var album = albums[i].parentNode.parentNode.parentNode;
 
-	switch(ordering) {
-		case 'name':
-			dropdown.options[0].selected = true;
-			break;
-		case 'namereverse':
-			dropdown.options[1].selected = true;
-			break;
-		case 'newest':
-			dropdown.options[2].selected = true;
-			break;
-		case 'oldest':
-			dropdown.options[3].selected = true;
-			break;
+		if (title.indexOf(search.toLowerCase()) > -1) {
+			album.setAttribute("style", "display: inline-block;")
+		}
+		else {
+			album.setAttribute("style", "display: none;")
+		}
 	}
 }

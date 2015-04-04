@@ -8,7 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}" />
 
-	<script src="{% static 'js/album.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'js/gallery.js' %}"></script>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
