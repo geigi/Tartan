@@ -88,14 +88,12 @@ img {
 	position: absolute;
 	top: 45%;
 	float: left;
-	color: rgba(255, 255, 255, 0.4);
 }
 
 .overlay-right {
 	position: absolute;
 	top: 45%;
 	right: 0px;
-	color: rgba(255, 255, 255, 0.4);
 
 }
 

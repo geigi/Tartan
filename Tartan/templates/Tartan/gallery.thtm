@@ -7,7 +7,6 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'css/theme.css' %}" />
 
 	<script src="{% static 'js/album.js' %}"></script>
 
@@ -15,7 +14,7 @@
 
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="{% static 'lib/dropdown/css/style.css' %}" />
-    
+  <link rel="stylesheet" type="text/css" href="{% static 'css/theme.css' %}" />
 {% endblock %}
 
 {% block body %}
@@ -32,7 +31,7 @@
 				Order by:
 			</span>
 		</div>
-		<div class="dropdown dropdown-dark">
+		<div class="dropdown">
 			<form action="" method="get">
 				<select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
 					<option value="name">a-z</option>
