@@ -8,9 +8,9 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/album.css' %}" />
-	<script src="{% static 'js/main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/album.js' %}"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="{% static 'lib/dropdown/css/style.css' %}" />
@@ -53,7 +53,7 @@
     <!-- Album snippet -->
     <!-- für jedes Bild im Album zu container div hinzufügen -->
         <a href="{% url 'imageDetail' img.id %}{% if ordering %}?ordering={{ordering}}{%endif%}"> <!-- link zu carousel mit angabe des bildes -->
-            <div id="" class="panel pic-preview"> <!-- Bild Name in ID einfügen -->
+            <div class="panel pic-preview"> <!-- Bild Name in ID einfügen -->
                 <div class="panel-body panel-body-preview">
                     <img class="image-preview" src="{{img.imgPreview.url}}" />
                 </div>
