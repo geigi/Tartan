@@ -24,7 +24,7 @@ class Photo(models.Model):
     PREVIEWSIZE = (300,200)
     CAROUSELSIZE = (2000,1200)
     
-    name = models.CharField(max_length = 200, null = True, blank = True)    
+    name = models.CharField(max_length = 200, blank = True)    
     description = models.TextField(blank = True)
     
     imgOrig = models.ImageField()
