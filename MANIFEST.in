@@ -1,0 +1,2 @@
+recursive-include Tartan/static *
+recursive-include Tartan/templates *
