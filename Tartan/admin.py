@@ -12,14 +12,18 @@ class AlbumAdminForm(forms.ModelForm):
         model=Album
         fields='__all__'
     def save(self, commit=True):
-        rv = super(AlbumAdminForm, self).save(commit=commit) 
+        newInst = super(AlbumAdminForm, self).save(commit=True)
         for imgfile in self.cleaned_data['multi_photo_upload']:
             print('got photo')
             photo = Photo()
             photo.imgOrig=imgfile
-            photo.album=self.instance
+            photo.album=newInst
             photo.save()
-        return rv
+        return newInst
+
+    #dummy to satisfy Django
+    def save_m2m(self):
+        return
 
 class ImageInline(admin.TabularInline ):
     model = Photo
