@@ -1,48 +1,81 @@
 /* GENERAL */
 body {
 	/* Background image */
-	background-image: linear-gradient(180deg, #D0D0D0, #E0E0E0);
+	background-image: linear-gradient(180deg, #101010, #191919);
 }
 
 /* Font for all text */
 span, .search {
 	font-family: "Calibri";
-	color: #101010;
+	color: #808080;
 }
 
 /* Colors for links */
 a:link {
-  color: #101010;
+  color: #A0A0A0;
 }
 a:visited {
-	color: #101010;
+	color: #A0A0A0;
 }
 a:hover {
-  color: #303030;
+  color: #B0B0B0;
 }
 
 /* Header and Footer Color */
 .top-div, .bottom-div {
-	background-color: rgba(240, 240, 240, 0.8);
-	/* Color for search icon and play button */
-	color: #101010;
+	background-color: rgba(16, 16, 16, 0.8);
+	/* Color for search icon */
+	color: #808080;
 }
 
 /* Background for Album/Picture preview in Gallery and Album overview */
 .panel {
-	background-color: #c0c0c0;
+	background-color: #303030;
 }
 .panel:hover {
-	background-color: #b0b0b0;
+	background-color: #404040;
 }
 
 /* Search field */
 .search {
-	border:1px solid #D0D0D0;
-	background-color:#D0D0D0;
+	border:1px solid #2a2e31;
+	background-color:#2d3035;
 }
 
 /* Overlay for navigation in Carousel */
 .overlay-left, .overlay-right {
-	color: rgba(10, 10, 10, 0.4);
+	color: rgba(10, 10, 10, 0.2);
+}
+
+
+
+/* DARK DROPDOWN menu */
+.dropdown {
+  background: #444;
+  border-color: #111 #0a0a0a black;
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.dropdown:before {
+  border-bottom-color: #aaa;
+}
+.dropdown:after {
+  border-top-color: #aaa;
+}
+.dropdown .dropdown-select {
+  color: #aaa;
+  text-shadow: 0 1px black;
+  /* Fallback for IE 8 */
+  background: #444;
+}
+.dropdown .dropdown-select:focus {
+  color: #ccc;
+}
+.dropdown .dropdown-select > option {
+  background: #444;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.4);
 }
