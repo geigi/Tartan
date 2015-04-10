@@ -2,12 +2,12 @@ from django.contrib import admin
 from django import forms
 from Tartan.models import Photo, Album
 
-from multiupload.fields import MultiFileField
+from Tartan.forms import MultiImageField
 
 # Album Administration
 
 class AlbumAdminForm(forms.ModelForm):
-    multi_photo_upload = MultiFileField(required = False, max_file_size=50*1024*1024)    
+    multi_photo_upload = MultiImageField(required = False, max_file_size=50*1024*1024)
     class Meta:
         model=Album
         fields='__all__'
