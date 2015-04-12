@@ -18,5 +18,5 @@ setup(
     
     url="https://github.com/geigi/Tartan",
     description="Django based Photo Gallery",
-    install_requires=["django", "pillow"]
+    install_requires=["django", "pillow", "django-multiupload", ]
     )
