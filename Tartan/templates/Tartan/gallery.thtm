@@ -94,6 +94,8 @@
 	{% endif %}
 </div>
 
+<div class="endPlaceholder"></div>
+
 <script type="text/javascript">
 	init();
 </script>
