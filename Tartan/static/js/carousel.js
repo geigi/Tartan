@@ -16,6 +16,7 @@ function init() {
   document.onkeydown = checkKey;
   initDiashow();
   initPicker();
+  initBackButton();
 }
 
 function resizeImg() {
@@ -202,4 +203,10 @@ function getKeyFromDic(dic, val) {
 function initOverlay() {
   hide("nav-left");
   hide("nav-right");
+}
+
+function initBackButton() {
+  $(window).on("popstate", function (e) {
+    location.reload()
+  });
 }
