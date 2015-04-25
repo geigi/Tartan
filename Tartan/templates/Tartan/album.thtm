@@ -31,8 +31,8 @@
 			</span>
 		</div>
 		<div class="dropdown">
-			<form action="" method="get">
-				<select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering" selected="newest">
+			<form method="get">
+				<select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
 					<option value="name">a-z</option>
 					<option value="namereverse">z-a</option>
 					<option value="newest">oldest first</option>
@@ -55,7 +55,7 @@
         <a href="{% url 'imageDetail' img.id %}{% if ordering %}?ordering={{ordering}}{%endif%}"> <!-- link zu carousel mit angabe des bildes -->
             <div class="panel pic-preview"> <!-- Bild Name in ID einfügen -->
                 <div class="panel-body panel-body-preview">
-                    <img class="image-preview" src="{{img.imgPreview.url}}" />
+                    <img class="image-preview" src="{{img.imgPreview.url}}" alt="{{img.id}}"/>
                 </div>
             </div>
         </a>

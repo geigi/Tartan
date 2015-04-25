@@ -17,7 +17,7 @@ a:link {
 a:visited {
 	color: #A0A0A0;
 }
-a:hover {
+a,i:hover {
   color: #B0B0B0;
 }
 
@@ -44,7 +44,7 @@ a:hover {
 
 /* Overlay for navigation in Carousel */
 .overlay-left, .overlay-right {
-	color: rgba(10, 10, 10, 0.2);
+	color: rgba(240, 240, 240, 0.4);
 }
 
 

@@ -1,13 +1,13 @@
 /* GENERAL */
 body {
-	/* Background image */
-	background-image: linear-gradient(180deg, #101010, #191919);
+  /* Background image */
+  background-image: linear-gradient(180deg, #101010, #191919);
 }
 
 /* Font for all text */
 span, .search {
-	font-family: "Calibri";
-	color: #808080;
+  font-family: "Calibri";
+  color: #808080;
 }
 
 /* Colors for links */
@@ -15,36 +15,36 @@ a:link {
   color: #A0A0A0;
 }
 a:visited {
-	color: #A0A0A0;
+  color: #A0A0A0;
 }
-a:hover {
+a,i:hover {
   color: #B0B0B0;
 }
 
 /* Header and Footer Color */
 .top-div, .bottom-div {
-	background-color: rgba(16, 16, 16, 0.8);
-	/* Color for search icon */
-	color: #808080;
+  background-color: rgba(16, 16, 16, 0.8);
+  /* Color for search icon */
+  color: #808080;
 }
 
 /* Background for Album/Picture preview in Gallery and Album overview */
 .panel {
-	background-color: #303030;
+  background-color: #303030;
 }
 .panel:hover {
-	background-color: #404040;
+  background-color: #404040;
 }
 
 /* Search field */
 .search {
-	border:1px solid #2a2e31;
-	background-color:#2d3035;
+  border:1px solid #2a2e31;
+  background-color:#2d3035;
 }
 
 /* Overlay for navigation in Carousel */
 .overlay-left, .overlay-right {
-	color: rgba(10, 10, 10, 0.2);
+  color: rgba(240, 240, 240, 0.4);
 }
 
 

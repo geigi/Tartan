@@ -70,11 +70,11 @@ img {
 	left: 30%;
 }
 
-#nav-left {
+#navi-left {
 	width: 40px;
 }
 
-#nav-right {
+#navi-right {
 	width: 40px;
 	float: right;
 	margin-right: 10px;
@@ -94,7 +94,6 @@ img {
 	position: absolute;
 	top: 45%;
 	right: 0px;
-
 }
 
 .fa-pause {
