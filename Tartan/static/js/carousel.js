@@ -4,6 +4,7 @@ var timer;
 var time = 2500;
 var pDic;
 var inversepDic
+var loaded = false;
 
 $(window).resize(function(){
     resizeImg();
@@ -206,7 +207,16 @@ function initOverlay() {
 }
 
 function initBackButton() {
+  // Safari bug fix
+  window.addEventListener('load', function() {
+      setTimeout(function() {
+        loaded = true;
+      }, 0);
+  });
+
   $(window).on("popstate", function (e) {
-    location.reload()
+    if (loaded) {
+      location.reload()
+    }
   });
 }
