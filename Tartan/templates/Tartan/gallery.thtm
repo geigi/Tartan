@@ -33,7 +33,7 @@
 			</span>
 		</div>
 		<div class="dropdown">
-			<form action="" method="get">
+			<form method="get">
 				<select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
 					<option value="name">a-z</option>
 					<option value="namereverse">z-a</option>
@@ -69,7 +69,7 @@
 				<div class="panel-body">
                                         {% for thumb in album.photo_set.all|dictsortreversed:"added"|slice:":4" %}
 					<div class="preview">
-                                            <img src={{thumb.imgThumb.url}}/>
+                                            <img src={{thumb.imgThumb.url}} alt={{thumb.id}}/>
 					</div>
 					{% endfor %}
 				</div>

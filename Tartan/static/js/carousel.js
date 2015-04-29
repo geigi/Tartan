@@ -4,6 +4,7 @@ var timer;
 var time = 2500;
 var pDic;
 var inversepDic
+var loaded = false;
 
 $(window).resize(function(){
     resizeImg();
@@ -16,6 +17,7 @@ function init() {
   document.onkeydown = checkKey;
   initDiashow();
   initPicker();
+  initBackButton();
 }
 
 function resizeImg() {
@@ -202,4 +204,19 @@ function getKeyFromDic(dic, val) {
 function initOverlay() {
   hide("nav-left");
   hide("nav-right");
+}
+
+function initBackButton() {
+  // Safari bug fix
+  window.addEventListener('load', function() {
+      setTimeout(function() {
+        loaded = true;
+      }, 0);
+  });
+
+  $(window).on("popstate", function (e) {
+    if (loaded) {
+      location.reload()
+    }
+  });
 }

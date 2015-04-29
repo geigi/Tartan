@@ -100,8 +100,8 @@
             </span>
         </div>
         <div class="dropdown">
-            <form action="" method="get">
-                <select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering" selected="newest">
+            <form method="get">
+                <select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
                     <option value="name">a-z</option>
                     <option value="namereverse">z-a</option>
                     <option value="newest">oldest first</option>
@@ -120,7 +120,7 @@
     <div class="container" id="container">
     	<div class="pic">
     		<div class="panel-body panel-body-preview">
-    			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgCarousel.url}}"/>
+    			<img id="fullPic" class="fullPic" onload="imgLoaded()" src="{{img.imgCarousel.url}}" alt="{{img.id}}"/>
     	    </div>
     	</div>
     </div>
@@ -152,7 +152,7 @@
 <div class="picker" id="picker">
 	{% for thumb in thumbs %}
 		<a href="{% url 'imageDetail' thumb.id %}{% if ordering %}?ordering={{ordering}}{%endif%}" class="inactive" id="thumb{{thumb.id}}">
-			<img src="{{thumb.imgThumb.url}}"></img>
+			<img src="{{thumb.imgThumb.url}}" alt="{{thumb.id}}" />
 		</a>
 	{% endfor %}
 </div>
