@@ -14,7 +14,7 @@ function getGet(index) {
          $_GET[aux[0]] = aux[1];
       }
   }
-  //get the 'index' query parameter
+  //get the 'index' query parameter 
   return $_GET[index];
 }
 
@@ -23,7 +23,7 @@ function initDropdown() {
   dropdown = document.getElementById("ordering");
 
   if (ordering === undefined) {
-    dropdown.options[2].selected = true;
+    dropdown.options[0].selected = true;
     return;
   }
 
@@ -34,10 +34,10 @@ function initDropdown() {
     case 'namereverse':
       dropdown.options[1].selected = true;
       break;
-    case 'newest':
+    case 'oldest':
       dropdown.options[2].selected = true;
       break;
-    case 'oldest':
+    case 'newest':
       dropdown.options[3].selected = true;
       break;
   }

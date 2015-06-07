@@ -1,7 +1,8 @@
+var time = 2500;
+
 var curPic = 0;
 var dia = 0;
 var timer;
-var time = 2500;
 var pDic;
 var inversepDic
 var loaded = false;

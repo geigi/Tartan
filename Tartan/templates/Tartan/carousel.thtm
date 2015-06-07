@@ -96,16 +96,16 @@
     <div class="orderByContainer">
         <div class="info-container">
             <span class="info-text">
-                Order by:
+                Sort:
             </span>
         </div>
         <div class="dropdown">
             <form method="get">
                 <select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
-                    <option value="name">a-z</option>
-                    <option value="namereverse">z-a</option>
-                    <option value="newest">oldest first</option>
-                    <option value="oldest">newest first</option>
+                    <option value="name">A-Z</option>
+                    <option value="namereverse">Z-A</option>
+                    <option value="oldest">Newest first</option>
+                    <option value="newest">Oldest first</option>
                 </select>
                 <input type="submit" value="Filter"/>
             </form>
