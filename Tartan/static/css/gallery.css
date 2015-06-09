@@ -13,6 +13,11 @@
 	margin-top: 10px;
 }
 
+.panel-heading-text {
+	font-weight: bold;
+	font-size: 120%;
+}
+
 .panel-heading-uploaded {
 	font-size: 90%;
 }

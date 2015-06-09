@@ -18,6 +18,10 @@ form {
 	margin:0 auto;
 }
 
+.bold {
+	font-weight: bold;
+}
+
 .search { 
 	padding:6px 15px 6px 30px;
 	margin:3px;

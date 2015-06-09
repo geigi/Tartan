@@ -80,11 +80,11 @@
 					</span>
 					<br />
 					<span class="panel-heading-uploaded">
-						Uploaded: {{album.lastPhotoUpload}}
+						<span class="bold">Uploaded:</span> {{album.lastPhotoUpload}}
 					</span>
 					<br />
 					<span class="panel-heading-uploaded">
-                                                Created: {{album.created}}
+            <span class="bold">Created:</span> {{album.created}}
 					</span>
 				</div>
 			</div>

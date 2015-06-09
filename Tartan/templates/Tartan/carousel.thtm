@@ -169,7 +169,7 @@
     	</span>
         <br />
         <span>
-            Uploaded: {{img.added}}
+            <span class="bold">Uploaded:</span> {{img.added}}
         </span>
     </div>
 </div>
