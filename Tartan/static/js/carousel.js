@@ -23,7 +23,7 @@ function init() {
 
 function resizeImg() {
   var height = parseInt($(window).height()) - 150;
-  var width = parseInt($(window).width()) - 120;
+  var width = parseInt($(window).width()) - 200;
 
   $('.fullPic').css({
     'max-width': width,

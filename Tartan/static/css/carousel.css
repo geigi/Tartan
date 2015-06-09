@@ -27,7 +27,7 @@ img {
 	margin-top: 8px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 66px;
+	width: 70px;
 }
 
 .fa-fw {
@@ -112,7 +112,7 @@ img {
 .canvas {
 	position: relative;
 	height: 100%;
-	margin-right: 50px;
+	margin-right: 65px;
 }
 
 .description {
@@ -136,4 +136,10 @@ img {
 	-o-filter: grayscale(10%); 
 	-ms-filter: grayscale(10%); 
 	filter: grayscale(10%);
+}
+
+.pic {
+	-webkit-transform: translateX(-47px);  
+ -o-transform: translateX(-47px);  
+ transform: translateX(-47px);
 }
