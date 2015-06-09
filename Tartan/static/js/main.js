@@ -29,16 +29,22 @@ function initDropdown() {
 
   switch(ordering) {
     case 'name':
-      dropdown.options[0].selected = true;
-      break;
-    case 'namereverse':
-      dropdown.options[1].selected = true;
-      break;
-    case 'oldest':
       dropdown.options[2].selected = true;
       break;
-    case 'newest':
+    case 'namereverse':
       dropdown.options[3].selected = true;
+      break;
+    case 'oldest':
+      dropdown.options[1].selected = true;
+      break;
+    case 'newest':
+      dropdown.options[0].selected = true;
+      break;
+    case 'newestphotofirst':
+      dropdown.options[4].selected = true;
+      break;
+    case 'newestphotolast':
+      dropdown.options[5].selected = true;
       break;
   }
 }

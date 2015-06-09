@@ -72,6 +72,7 @@ input[type=text]{
   transform: translateY(8%);
   -o-transform: translateY(8%); 
 	-webkit-transform: translateY(8%); 
+	width: 170px;
 }
 
 .title_container {
