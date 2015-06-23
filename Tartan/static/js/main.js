@@ -14,7 +14,7 @@ function getGet(index) {
          $_GET[aux[0]] = aux[1];
       }
   }
-  //get the 'index' query parameter
+  //get the 'index' query parameter 
   return $_GET[index];
 }
 
@@ -23,22 +23,28 @@ function initDropdown() {
   dropdown = document.getElementById("ordering");
 
   if (ordering === undefined) {
-    dropdown.options[2].selected = true;
+    dropdown.options[0].selected = true;
     return;
   }
 
   switch(ordering) {
     case 'name':
-      dropdown.options[0].selected = true;
+      dropdown.options[2].selected = true;
       break;
     case 'namereverse':
+      dropdown.options[3].selected = true;
+      break;
+    case 'oldest':
       dropdown.options[1].selected = true;
       break;
     case 'newest':
-      dropdown.options[2].selected = true;
+      dropdown.options[0].selected = true;
       break;
-    case 'oldest':
-      dropdown.options[3].selected = true;
+    case 'newestphotofirst':
+      dropdown.options[4].selected = true;
+      break;
+    case 'newestphotolast':
+      dropdown.options[5].selected = true;
       break;
   }
 }

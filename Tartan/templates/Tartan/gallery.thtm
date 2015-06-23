@@ -5,8 +5,6 @@
 {% block head %}
 	<title>Gallery</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}" />
 
 	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/gallery.js' %}"></script>
@@ -16,6 +14,9 @@
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="{% static 'lib/dropdown/css/style.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/theme.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}" />
 {% endblock %}
 
 {% block body %}
@@ -29,18 +30,18 @@
 	<div id="orderByContainer">
 		<div class="info-container">
 			<span class="info-text">
-				Order by:
+				Sort:
 			</span>
 		</div>
 		<div class="dropdown">
 			<form method="get">
 				<select name="ordering" class="dropdown-select" onchange="this.form.submit();" id="ordering">
-					<option value="name">a-z</option>
-					<option value="namereverse">z-a</option>
-					<option value="newest">oldest first</option>
-					<option value="oldest">newest first</option>
-					<option value="newestphotofirst">newest last photo</option>
-					<option value="newestphotolast" >oldest last photo</option>
+					<option value="newest">Oldest first</option>
+					<option value="oldest">Newest first</option>
+					<option value="name">A-Z</option>
+					<option value="namereverse">Z-A</option>
+					<option value="newestphotofirst">Recently changed</option>
+					<option value="newestphotolast">Least recently changed</option>
 				</select>
 				<input type="submit" value="Filter"/>
 			</form>
@@ -79,11 +80,11 @@
 					</span>
 					<br />
 					<span class="panel-heading-uploaded">
-						Uploaded: {{album.lastPhotoUpload}}
+						<span class="bold">Uploaded:</span> {{album.lastPhotoUpload}}
 					</span>
 					<br />
 					<span class="panel-heading-uploaded">
-                                                Created: {{album.created}}
+            <span class="bold">Created:</span> {{album.created}}
 					</span>
 				</div>
 			</div>

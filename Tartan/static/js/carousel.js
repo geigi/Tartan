@@ -1,7 +1,8 @@
+var time = 2500;
+
 var curPic = 0;
 var dia = 0;
 var timer;
-var time = 2500;
 var pDic;
 var inversepDic
 var loaded = false;
@@ -22,7 +23,7 @@ function init() {
 
 function resizeImg() {
   var height = parseInt($(window).height()) - 150;
-  var width = parseInt($(window).width()) - 120;
+  var width = parseInt($(window).width()) - 200;
 
   $('.fullPic').css({
     'max-width': width,
