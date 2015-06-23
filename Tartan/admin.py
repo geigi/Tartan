@@ -14,7 +14,6 @@ class AlbumAdminForm(forms.ModelForm):
     def save(self, commit=True):
         newInst = super(AlbumAdminForm, self).save(commit=True)
         for imgfile in self.cleaned_data['multi_photo_upload']:
-            print('got photo')
             photo = Photo()
             photo.imgOrig=imgfile
             photo.album=newInst
