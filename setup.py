@@ -3,10 +3,10 @@ import os
 
 setup(
     name="django-tartan",
-    version="0.8.0",
+    version="0.9.0",
     
     author="Julian Geywitz, Michael Schubert",
-    author_email="willBeAddedLater@example.com",
+    author_email="geigi@users.noreply.github.com",
     
     packages=["Tartan"],
     include_package_data = True,
