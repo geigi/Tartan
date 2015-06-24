@@ -11,7 +11,7 @@ import datetime
 class Album(models.Model):
     name = models.CharField(max_length = 200)
     
-    created = models.DateTimeField(auto_now_add=True, default=datetime.datetime(2000,1,1))
+    created = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.name
@@ -35,7 +35,7 @@ class Photo(models.Model):
     
     album = models.ForeignKey(Album)
     
-    added = models.DateTimeField(auto_now_add=True, default = timezone.now())
+    added = models.DateTimeField(auto_now_add=True)
     
     # override SAVE to create thumbs and preview image files
     def save(self):
