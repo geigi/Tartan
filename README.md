@@ -1,4 +1,5 @@
-Tartan is a modern and lightweight web photo gallery.
+Tartan is a modern and lightweight web photo gallery using Django.
+The only Web Framework it uses is jQuery, no Bootstrap, etc. is used.
 
 # Features
 - Organize photos by albums
@@ -8,6 +9,7 @@ Tartan is a modern and lightweight web photo gallery.
 - Download original file
 - Bandwith optimized through small thumbnails
 - Optimized for PC and Tablet use
+- Works in browsers with disabled JavaScript
 
 # Admin Features
 - Upload multiple Photos at a time
