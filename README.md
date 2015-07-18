@@ -44,3 +44,11 @@ After `git clone`:
 
 # Naming
 http://de.wikipedia.org/wiki/Farbfotografie#mediaviewer/File:Tartan_Ribbon.jpg
+
+# Special Thanks
+- jQuery: http://jquery.com
+- JScrollPane: http://jscrollpane.kelvinluck.com
+- Font Awesome: http://fortawesome.github.io/Font-Awesome/
+- W3C: http://validator.w3.org
+- Django: https://www.djangoproject.com
+- Pillow: https://pillow.readthedocs.org
