@@ -1,6 +1,18 @@
 Tartan is a modern and lightweight web photo gallery using Django.
 The only Web Framework it uses is jQuery, no Bootstrap, etc. is used.
 
+**Gallery Overview:**
+![](/../screenshots/Screenshots/Overview_Dark.png)
+
+**Album Overview:**
+![](/../screenshots/Screenshots/Album_Dark.png)
+
+**Carousel:**
+![](/../screenshots/Screenshots/Carousel_Dark.png)
+
+**Custom Color Scheme:**
+![](/../screenshots/Screenshots/Overview_Light.png)
+
 # Features
 - Organize photos by albums
 - Add descriptions to your photos
@@ -13,7 +25,7 @@ The only Web Framework it uses is jQuery, no Bootstrap, etc. is used.
 
 # Admin Features
 - Upload multiple Photos at a time
-- Themable by a single CSS file
+- Create color schemes with a single CSS file
 
 # Requirements
 - Chrome 10 (Release: 08.03.2011)
