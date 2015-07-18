@@ -47,6 +47,10 @@ After `git clone`:
 - `python manage.py migrate`
 - `python manage.py createsuperuser`
 
+# Server Installation
+
+* [Installation on Linux](https://github.com/geigi/Tartan/wiki/Installation-on-Linux)
+
 # Update
 - `python manage.py makemigrations`
 - `python manage.py migrate`
